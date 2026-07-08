@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ModernTrust Market | Belanja Cerdas UMKM Indonesia</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#e4e2e2",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#99d3ba",
+                        "tertiary": "#003049",
+                        "on-surface-variant": "#404944",
+                        "outline": "#707974",
+                        "surface-container-highest": "#e4e2e2",
+                        "inverse-on-surface": "#f2f0f0",
+                        "on-tertiary-fixed": "#001e2f",
+                        "tertiary-container": "#004769",
+                        "on-primary-fixed-variant": "#15503e",
+                        "surface-bright": "#fbf9f8",
+                        "primary-fixed": "#b4efd6",
+                        "inverse-surface": "#303030",
+                        "on-error": "#ffffff",
+                        "on-surface": "#1b1c1c",
+                        "on-secondary-fixed": "#2f1500",
+                        "secondary-fixed": "#ffdcc3",
+                        "on-secondary-fixed-variant": "#6e3900",
+                        "on-background": "#1b1c1c",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#cae6ff",
+                        "inverse-primary": "#99d3ba",
+                        "primary-container": "#0f4c3a",
+                        "on-tertiary-fixed-variant": "#004b6f",
+                        "on-primary-container": "#82bba4",
+                        "outline-variant": "#bfc9c3",
+                        "surface-container-high": "#eae8e7",
+                        "on-error-container": "#93000a",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#ffb77d",
+                        "background": "#fbf9f8",
+                        "secondary": "#904d00",
+                        "primary": "#003426",
+                        "surface-container": "#efeded",
+                        "on-secondary-container": "#713b00",
+                        "tertiary-fixed-dim": "#8ccdff",
+                        "surface-dim": "#dbd9d9",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint": "#306855",
+                        "surface-container-low": "#f5f3f3",
+                        "on-primary-fixed": "#002117",
+                        "surface": "#fbf9f8",
+                        "on-tertiary-container": "#54b8f9",
+                        "secondary-container": "#ffa454"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "margin-mobile": "16px",
+                        "base": "4px",
+                        "3xl": "64px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "xl": "32px",
+                        "sm": "8px",
+                        "2xl": "48px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "title-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["11px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "label-md": ["12px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "title-lg": ["20px", {"lineHeight": "1.5", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-effect {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- TopNavBar -->
+<nav class="bg-surface/80 dark:bg-surface-dim/80 docked full-width top-0 sticky backdrop-blur-md shadow-md dark:shadow-none z-50">
+<div class="flex justify-between items-center w-full px-lg md:px-xl max-w-container-max mx-auto h-20">
+<div class="flex items-center gap-xl">
+<span class="text-title-lg font-title-lg font-black text-primary dark:text-primary-fixed">ModernTrust Market</span>
+<!-- Desktop Navigation -->
+<div class="hidden md:flex items-center gap-lg">
+<a class="text-primary dark:text-primary-fixed-dim font-bold border-b-2 border-primary dark:border-primary-fixed-dim pb-1 text-label-md font-label-md" href="#">Marketplace</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors text-label-md font-label-md" href="#">Flash Sales</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors text-label-md font-label-md" href="#">Official Stores</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors text-label-md font-label-md" href="#">Help</a>
+</div>
+</div>
+<!-- Search Bar (on_left logic interpretation: priority search) -->
+<div class="hidden md:flex flex-1 max-w-md mx-xl">
+<div class="relative w-full">
+<input class="w-full bg-surface-container border-none rounded-xl py-2 pl-10 pr-4 focus:ring-2 focus:ring-primary/20 text-body-md font-body-md" placeholder="Cari laptop, sepatu, atau kebutuhan rumah..." type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined p-2 text-primary hover:bg-surface-container-high/50 rounded-lg transition-all active:scale-95">shopping_cart</button>
+<button class="material-symbols-outlined p-2 text-primary hover:bg-surface-container-high/50 rounded-lg transition-all active:scale-95">notifications</button>
+<button class="material-symbols-outlined p-2 text-primary hover:bg-surface-container-high/50 rounded-lg transition-all active:scale-95">account_circle</button>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-lg pb-3xl">
+<!-- Promo Banner (Bento Style) -->
+<section class="mt-lg grid grid-cols-1 md:grid-cols-3 gap-lg h-auto md:h-[400px]">
+<div class="md:col-span-2 relative rounded-2xl overflow-hidden shadow-lg group">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A cinematic advertising shot of high-end electronics and designer lifestyle products arranged neatly on a dark marble surface. Vibrant emerald green neon lighting highlights the edges of the products, creating a modern and trustworthy corporate aesthetic. Professional studio lighting with soft shadows conveys a sense of stability and premium quality. The overall mood is sophisticated and celebratory for a major end-of-year sale event." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDwk1MealrVvjwTszwwz4WYDBSfUXnxy4MMX3nNYQ92J5z5HPYUb-QncDSKLDjiWUYEzpXe8d8PZSAe4YTSxN5xtnDQFI4P-aAjk-S7Ewk39cXZyBSLWtCqJ8bzp6om8GmU5DS_TFg5sBDiQIBACXk_tnWemd6mGg7ZfOZD3YGxTPeuo8gqHpIBq89m__wi0YHwM4m46FBWpFlDQb27YGvd2OoL0I8teCfn5PWhX9FsZGVaFORFfwr2usL4zd13yPJXkAGaNBlPsD1F')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent flex flex-col justify-end p-xl text-white">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-label-sm font-label-sm w-fit mb-sm">Exclusive Launch</span>
+<h1 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg mb-xs">PROMO AKHIR TAHUN</h1>
+<p class="text-body-md font-body-md opacity-90 max-w-md mb-md">Dapatkan diskon hingga 70% untuk koleksi pilihan Elektronik dan Fashion. Gunakan kode: <span class="font-bold tracking-widest text-secondary-fixed">PROMOAKHIRTAHUN</span></p>
+<button class="bg-secondary text-on-secondary font-bold py-3 px-xl rounded-xl w-fit hover:bg-secondary/90 transition-all active:scale-95">Belanja Sekarang</button>
+</div>
+</div>
+<div class="hidden md:flex flex-col gap-lg">
+<div class="flex-1 relative rounded-2xl overflow-hidden shadow-sm border border-outline-variant/30 group">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="A professional close-up of a sleek modern kitchen interior featuring high-end smart home appliances. The lighting is bright and airy, emphasizing a light-mode corporate aesthetic with clean white surfaces and subtle grey textures. The scene is organized and minimalist, suggesting a high standard of living and modern household efficiency. Subtle emerald green accents appear in small decor items." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCX1ccDZxloQMnI7zPpOBgU5MJvAdXBQ2UbjZAi9hTjfTTfoH4OooEuITt4GK6XNglWxE0wmTo0qV6cwcrjwjoKDmMwTuVzm7vLGFF1zUJMCVdrs3a19Bp-z90DH4I9lX_rug3_wW5SaUSjXBvoIKlduhGyJ8u5E3cYHlPPTK1NIAhXOUKfDi1AKO1EJlgQC-WS4VIog5ZIMj40CXoOo7GbbSsU_EYt8qBToGLGNRoScYxXJb0vmyyrSxMiMGmE1988yCBS0yeJV3Jw')"></div>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
+<div class="absolute bottom-4 left-4">
+<p class="text-white font-bold text-title-lg">Perlengkapan Rumah</p>
+<p class="text-white/80 text-label-md">Hemat s/d 40%</p>
+</div>
+</div>
+<div class="flex-1 relative rounded-2xl overflow-hidden shadow-sm border border-outline-variant/30 group">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="A stylish flat lay of modern tech gadgets including a smartphone, wireless earbuds, and a smartwatch in a workspace setting. The background is a clean light grey textured surface, maintaining a professional and stable visual language. The lighting is balanced with soft ambient shadows to create depth. Every element looks premium and trustworthy for a high-value marketplace transaction." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAJQAvLBjVASRh5t6_m9yy9mooAYeKAQPmXS_6eDLmdtyGo96-iz6AiTYdjfMrrQnFfvEWvZiyIFHoGxH9DDQbn-b9xY7MNQtmIqnjp09dm9rP3Y309Whm5z7OPv5GrArEURKrjSIhGR6pi5V9U1V56dKB61LQ99ruoyEUIt1sRbcSC36IYe-3tup4q-0Ss3Cxbbc_MnDnrpNRFCKClfZQDFRwL5YoTS33eU6WP58gNs5vAf7f8Yk62Jf_39ZC53dh5j_WCSx48KdEE')"></div>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
+<div class="absolute bottom-4 left-4">
+<p class="text-white font-bold text-title-lg">Gadget Terbaru</p>
+<p class="text-white/80 text-label-md">Cicilan 0%</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Categories -->
+<section class="mt-3xl">
+<div class="flex justify-between items-end mb-lg">
+<div>
+<h2 class="text-headline-md font-headline-md text-primary">Kategori Pilihan</h2>
+<p class="text-body-md font-body-md text-on-surface-variant">Temukan kebutuhan terbaik dari UMKM terverifikasi</p>
+</div>
+<button class="text-primary font-bold text-label-md flex items-center gap-xs hover:underline">Lihat Semua <span class="material-symbols-outlined text-[16px]">arrow_forward</span></button>
+</div>
+<div class="grid grid-cols-3 md:grid-cols-6 gap-md">
+<!-- Category Card 1 -->
+<a class="flex flex-col items-center gap-sm group" href="#">
+<div class="w-full aspect-square bg-surface-container-low rounded-2xl flex items-center justify-center border border-outline-variant/20 transition-all group-hover:shadow-md group-hover:border-primary/30">
+<span class="material-symbols-outlined text-primary text-4xl group-hover:scale-110 transition-transform">devices</span>
+</div>
+<span class="text-label-md font-label-md text-on-surface group-hover:text-primary">Elektronik</span>
+</a>
+<!-- Category Card 2 -->
+<a class="flex flex-col items-center gap-sm group" href="#">
+<div class="w-full aspect-square bg-surface-container-low rounded-2xl flex items-center justify-center border border-outline-variant/20 transition-all group-hover:shadow-md group-hover:border-primary/30">
+<span class="material-symbols-outlined text-primary text-4xl group-hover:scale-110 transition-transform">apparel</span>
+</div>
+<span class="text-label-md font-label-md text-on-surface group-hover:text-primary">Fashion</span>
+</a>
+<!-- Category Card 3 -->
+<a class="flex flex-col items-center gap-sm group" href="#">
+<div class="w-full aspect-square bg-surface-container-low rounded-2xl flex items-center justify-center border border-outline-variant/20 transition-all group-hover:shadow-md group-hover:border-primary/30">
+<span class="material-symbols-outlined text-primary text-4xl group-hover:scale-110 transition-transform">chair</span>
+</div>
+<span class="text-label-md font-label-md text-on-surface group-hover:text-primary">Rumah Tangga</span>
+</a>
+<!-- Category Card 4 -->
+<a class="flex flex-col items-center gap-sm group" href="#">
+<div class="w-full aspect-square bg-surface-container-low rounded-2xl flex items-center justify-center border border-outline-variant/20 transition-all group-hover:shadow-md group-hover:border-primary/30">
+<span class="material-symbols-outlined text-primary text-4xl group-hover:scale-110 transition-transform">local_mall</span>
+</div>
+<span class="text-label-md font-label-md text-on-surface group-hover:text-primary">Kecantikan</span>
+</a>
+<!-- Category Card 5 -->
+<a class="flex flex-col items-center gap-sm group" href="#">
+<div class="w-full aspect-square bg-surface-container-low rounded-2xl flex items-center justify-center border border-outline-variant/20 transition-all group-hover:shadow-md group-hover:border-primary/30">
+<span class="material-symbols-outlined text-primary text-4xl group-hover:scale-110 transition-transform">sports_esports</span>
+</div>
+<span class="text-label-md font-label-md text-on-surface group-hover:text-primary">Hobi &amp; Game</span>
+</a>
+<!-- Category Card 6 -->
+<a class="flex flex-col items-center gap-sm group" href="#">
+<div class="w-full aspect-square bg-surface-container-low rounded-2xl flex items-center justify-center border border-outline-variant/20 transition-all group-hover:shadow-md group-hover:border-primary/30">
+<span class="material-symbols-outlined text-primary text-4xl group-hover:scale-110 transition-transform">restaurant</span>
+</div>
+<span class="text-label-md font-label-md text-on-surface group-hover:text-primary">Makanan</span>
+</a>
+</div>
+</section>
+<!-- Bestsellers (Product Cards) -->
+<section class="mt-3xl">
+<div class="flex justify-between items-end mb-lg">
+<div>
+<h2 class="text-headline-md font-headline-md text-primary">Produk Terlaris</h2>
+<p class="text-body-md font-body-md text-on-surface-variant">Pilihan pelanggan paling favorit minggu ini</p>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-gutter">
+<!-- Product 1 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_2px_4px_rgba(0,0,0,0.04)] border border-outline-variant/30 flex flex-col hover:shadow-lg transition-shadow group">
+<div class="relative aspect-square overflow-hidden">
+<div class="w-full h-full bg-cover bg-center transition-transform group-hover:scale-110" data-alt="A professional studio photo of a minimalist white noise-canceling headphone on a pedestal. The background is a soft mint green gradient, perfectly matching the primary brand color. The lighting is clean and corporate, highlighting the smooth texture and high-build quality of the gadget. Minimalist aesthetic with a premium feel." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC-r1eAVHDV8p3-SKr0qYFtIg4bOgkrNKdE5l5FFuWSJUncuzJi834A9vr9AcWZwK1nLfzFP2Rt7-5LAGlEOSmg0GKh9UXvaGff9zGsH4tiPLYt-g5kWzQJW7CfH2Mn5F25d1DYPYQGv_V8qh2ePX0RtMHd6aIXxHllgdcWZzo6x4QFyXlhZWU5ZwYaZJ134mZA00PHJcBdFDXfKmMe2On3uPh8KVXpIP7SF3rSzZcQZ6SS96nmv8oG9eoaqg_l6hudiQRT2dMjWmkH')"></div>
+<span class="absolute top-2 left-2 bg-error text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">Sale 20%</span>
+</div>
+<div class="p-md flex flex-col flex-1">
+<span class="text-label-sm font-label-sm text-outline mb-xs">Acoustic Pro</span>
+<h3 class="text-body-md font-semibold text-on-surface line-clamp-2 mb-sm">ModernTrust Wireless Headphones Gen-2 White</h3>
+<div class="mt-auto">
+<div class="flex items-center gap-xs mb-1">
+<span class="material-symbols-outlined text-secondary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-md font-bold">4.9</span>
+<span class="text-label-sm text-outline">(1.2rb ulasan)</span>
+</div>
+<div class="flex items-center justify-between gap-xs">
+<div>
+<p class="text-primary font-bold text-body-lg">Rp1.499.000</p>
+<p class="text-outline line-through text-label-sm">Rp1.890.000</p>
+</div>
+<button class="bg-primary text-white p-2 rounded-lg hover:bg-primary/90 transition-all active:scale-95 flex items-center justify-center">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_2px_4px_rgba(0,0,0,0.04)] border border-outline-variant/30 flex flex-col hover:shadow-lg transition-shadow group">
+<div class="relative aspect-square overflow-hidden">
+<div class="w-full h-full bg-cover bg-center transition-transform group-hover:scale-110" data-alt="A clean product shot of a tailored charcoal grey linen shirt for men, neatly folded on a light oak wood surface. The lighting is natural and soft, coming from a side window, creating a warm and inclusive marketplace feel. The colors are muted and professional, emphasizing the high-quality fabric texture of a local MSME product." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBsZy3bsvDeDnHsjo40UYDQ2366Ak3GkVG8QMUSw2uDYJzkmpJXJP_lNo_ZL18Jj4AFoBpOI1P5L2Ct1TKsQ0rDk4tk3ehxEktJZ9byR11SIYHBGdRrODjpPLtdtvRQ__OpeXWvPt-yPz4zIBrIJo5NOzXjhPftV-_EChSlKDc6b8onTGMDD2JD7A2VNUmtuxmtFwC85B8EEX2VsbHF7HdJtl34NJRoD4TBvfbUoKGFh9wP9gau5G9RwGNhcDoXynZ6S1TrJW349wR-')"></div>
+<span class="absolute top-2 left-2 bg-primary text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">Best Seller</span>
+</div>
+<div class="p-md flex flex-col flex-1">
+<span class="text-label-sm font-label-sm text-outline mb-xs">Threads &amp; Co</span>
+<h3 class="text-body-md font-semibold text-on-surface line-clamp-2 mb-sm">Kemeja Linen Premium Charcoal - Slim Fit</h3>
+<div class="mt-auto">
+<div class="flex items-center gap-xs mb-1">
+<span class="material-symbols-outlined text-secondary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-md font-bold">4.8</span>
+<span class="text-label-sm text-outline">(850 ulasan)</span>
+</div>
+<div class="flex items-center justify-between gap-xs">
+<div>
+<p class="text-primary font-bold text-body-lg">Rp245.000</p>
+</div>
+<button class="bg-primary text-white p-2 rounded-lg hover:bg-primary/90 transition-all active:scale-95 flex items-center justify-center">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_2px_4px_rgba(0,0,0,0.04)] border border-outline-variant/30 flex flex-col hover:shadow-lg transition-shadow group">
+<div class="relative aspect-square overflow-hidden">
+<div class="w-full h-full bg-cover bg-center transition-transform group-hover:scale-110" data-alt="An elegant glass carafe set with four matching cups, filled with lemon-infused water. The set is displayed on a minimalist white countertop in a sunlit modern kitchen. The visual style is light, airy, and modern, representing stable and trustworthy home products. High-key lighting with crystal clear reflections on the glass." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCbDMUKmiwl0Uqi9wWHfpGenMGutaIgnRmZ2B8Okhid5Ox41MSdfP5jaU_lYLBAo5Nd9y5QfsVuShDTeozmAK0ZVK7potlvghfYQBR17Zz4luy2p3ZPVV1SLJg1TJD2vAeIXhzGYvQtICY5pLwYvQXCeaIVRw940vylP1dwP4w0dOJ71eueJFOPEABSG2levLQ2XEpBinzd7S0zedt_lzK3rn-8rQozFbY0ldX5Dns9Z7nNhG3bYrRDrA7DZDPYHGM2WLiN-VRMFZw9')"></div>
+</div>
+<div class="p-md flex flex-col flex-1">
+<span class="text-label-sm font-label-sm text-outline mb-xs">Omah Glass</span>
+<h3 class="text-body-md font-semibold text-on-surface line-clamp-2 mb-sm">Set Teko &amp; Gelas Kaca Kristal Modern - 5 Pcs</h3>
+<div class="mt-auto">
+<div class="flex items-center gap-xs mb-1">
+<span class="material-symbols-outlined text-secondary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-md font-bold">5.0</span>
+<span class="text-label-sm text-outline">(342 ulasan)</span>
+</div>
+<div class="flex items-center justify-between gap-xs">
+<div>
+<p class="text-primary font-bold text-body-lg">Rp185.000</p>
+</div>
+<button class="bg-primary text-white p-2 rounded-lg hover:bg-primary/90 transition-all active:scale-95 flex items-center justify-center">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_2px_4px_rgba(0,0,0,0.04)] border border-outline-variant/30 flex flex-col hover:shadow-lg transition-shadow group">
+<div class="relative aspect-square overflow-hidden">
+<div class="w-full h-full bg-cover bg-center transition-transform group-hover:scale-110" data-alt="A professional studio shot of an ergonomic designer chair in a soft teal color, set against a pristine white background. The lighting is soft and even, highlighting the sleek curves and modern design of the furniture. The overall aesthetic is clean, professional, and corporate, emphasizing stability and comfort for a modern home office." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC6X0ZxErH6aG5Kyp1BOk--cbPWWyf3-Rs_dl-z84bVLGOA12_Xl1lveZlclThGsS-lw7IKX-NydP_fEp4G5W_SA-IPhPIvqEPtJPbxEwPWyhoWRrMo9ntUrfG73Yd0zsklxW9XmdYxsl3ubyLijabfJ7dk1cyYWdu9FNRt2ZoPQie-vFWBpTEkSnUM8s-Fp8_FFyvza2zhr5r8x4_uD0JhUtD7SEZ_IFDo_mIRoBEo-gLqAvRJwQBvzJNRmq2Xh5BEMAYZXMDwn5nJ')"></div>
+</div>
+<div class="p-md flex flex-col flex-1">
+<span class="text-label-sm font-label-sm text-outline mb-xs">ComfortSpace</span>
+<h3 class="text-body-md font-semibold text-on-surface line-clamp-2 mb-sm">Kursi Kerja Ergonomis Mesh Pro - Forest Green</h3>
+<div class="mt-auto">
+<div class="flex items-center gap-xs mb-1">
+<span class="material-symbols-outlined text-secondary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-md font-bold">4.7</span>
+<span class="text-label-sm text-outline">(621 ulasan)</span>
+</div>
+<div class="flex items-center justify-between gap-xs">
+<div>
+<p class="text-primary font-bold text-body-lg">Rp1.150.000</p>
+</div>
+<button class="bg-primary text-white p-2 rounded-lg hover:bg-primary/90 transition-all active:scale-95 flex items-center justify-center">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Product 5 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_2px_4px_rgba(0,0,0,0.04)] border border-outline-variant/30 flex flex-col hover:shadow-lg transition-shadow group">
+<div class="relative aspect-square overflow-hidden">
+<div class="w-full h-full bg-cover bg-center transition-transform group-hover:scale-110" data-alt="A close-up shot of a high-tech robotic vacuum cleaner working on a light grey hardwood floor. The device has a sleek matte black finish with subtle status lights. The lighting is modern and highlights the precision technology, fitting the stable and professional brand identity. Minimalist home environment in the background." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAU9nC6y6Mx4EVVni3-UvjNR8x9fRUDjLsPIYjohcMQpFsxcGMokNtvQGZFOdJ_pHImWLsSMeVi2RSrbSUfV4Mh9AR8k6vV7dINk7sggdjg2Yazdazhcp3QzJG1LtorMkO3tr2a0DKY6l1ynokG4-Mi18pFdeJ-tKU6jU60MIPe7ond_DF44iUbwUhFle54o-ste9pqSMOn7fG3tnbK9M3KrviEP8e-C4_xo77rUZSR2TD3oOtMCztqPYMOayZA3wimel-RZX1VKRsL')"></div>
+</div>
+<div class="p-md flex flex-col flex-1">
+<span class="text-label-sm font-label-sm text-outline mb-xs">SmartHome</span>
+<h3 class="text-body-md font-semibold text-on-surface line-clamp-2 mb-sm">Robo-Clean V2 - Smart Vacuum with AI Map</h3>
+<div class="mt-auto">
+<div class="flex items-center gap-xs mb-1">
+<span class="material-symbols-outlined text-secondary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-md font-bold">4.9</span>
+<span class="text-label-sm text-outline">(210 ulasan)</span>
+</div>
+<div class="flex items-center justify-between gap-xs">
+<div>
+<p class="text-primary font-bold text-body-lg">Rp3.200.000</p>
+</div>
+<button class="bg-primary text-white p-2 rounded-lg hover:bg-primary/90 transition-all active:scale-95 flex items-center justify-center">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Dynamic Promo Section -->
+<section class="mt-3xl bg-primary-container rounded-3xl p-xl flex flex-col md:flex-row items-center gap-xl">
+<div class="flex-1">
+<h2 class="text-headline-lg font-headline-lg text-on-primary-container mb-md">Dukung UMKM Lokal,<br/>Dapatkan Cashback 50rb!</h2>
+<p class="text-body-lg font-body-lg text-on-primary-container opacity-80 mb-lg">Setiap pembelian produk dari toko berlogo 'Verified Merchant' akan mendapatkan saldo dompet digital langsung.</p>
+<div class="flex flex-wrap gap-md">
+<div class="bg-surface/20 backdrop-blur-md px-lg py-md rounded-xl flex items-center gap-md">
+<span class="material-symbols-outlined text-on-primary-container text-4xl">verified_user</span>
+<div>
+<p class="text-label-md font-bold text-on-primary-container">Keamanan Terjamin</p>
+<p class="text-label-sm text-on-primary-container opacity-70">Escrow System Modern</p>
+</div>
+</div>
+<div class="bg-surface/20 backdrop-blur-md px-lg py-md rounded-xl flex items-center gap-md">
+<span class="material-symbols-outlined text-on-primary-container text-4xl">local_shipping</span>
+<div>
+<p class="text-label-md font-bold text-on-primary-container">Pengiriman Cepat</p>
+<p class="text-label-sm text-on-primary-container opacity-70">Logistik Terintegrasi</p>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full md:w-[40%] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl rotate-2">
+<div class="w-full h-full bg-cover bg-center" data-alt="A heart-warming and professional photo of a diverse group of Indonesian small business owners smiling and holding their local products in a bright, modern workshop setting. The lighting is warm and inclusive, representing the diverse community supported by the marketplace. High-end photography quality with a shallow depth of field, emphasizing the human element and trust." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC3x6HXiCY5SowS1ioQayWhnp10-BDLMqFsTSlTWPSVRnQ7drPpltHtUFVp7lZMFyUPk43eucmNW3ZEeGPYzGLJh8obwdwYu4_D20K_ijkUixxSCDPDgkrXv9VixVEI8Kn3XZ_Kks7xHkW-S5ewkSTidKR7XszhwG0khAWwIiaFz3YBkoyntunlfmlhDLxLcwMbYecr3ZUt2AgVAn_s7f_FYgvQ1BhFOgJ8ChJfe_dyHsutSCsfLvzXQoOpYBd7MlCct93yWVa9urKY')"></div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary dark:bg-primary-container w-full py-2xl mt-3xl">
+<div class="w-full grid grid-cols-1 md:grid-cols-4 gap-xl px-lg max-w-container-max mx-auto">
+<div class="flex flex-col gap-md">
+<span class="text-title-lg font-title-lg text-on-primary">ModernTrust Market</span>
+<p class="text-body-md font-body-md text-primary-fixed/80">Solusi e-commerce terpercaya untuk menghubungkan standar internasional dengan potensi luar biasa UMKM Indonesia.</p>
+<div class="flex gap-md">
+<a class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary hover:bg-secondary-container transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary hover:bg-secondary-container transition-colors" href="#"><span class="material-symbols-outlined">mail</span></a>
+</div>
+</div>
+<div>
+<h4 class="text-label-md font-bold text-on-primary mb-lg uppercase tracking-wider">Perusahaan</h4>
+<ul class="flex flex-col gap-sm">
+<li><a class="text-primary-fixed/80 hover:text-white hover:underline transition-all text-body-md" href="#">About Us</a></li>
+<li><a class="text-primary-fixed/80 hover:text-white hover:underline transition-all text-body-md" href="#">Career</a></li>
+<li><a class="text-primary-fixed/80 hover:text-white hover:underline transition-all text-body-md" href="#">Blog</a></li>
+<li><a class="text-primary-fixed/80 hover:text-white hover:underline transition-all text-body-md" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-label-md font-bold text-on-primary mb-lg uppercase tracking-wider">Bantuan</h4>
+<ul class="flex flex-col gap-sm">
+<li><a class="text-primary-fixed/80 hover:text-white hover:underline transition-all text-body-md" href="#">Seller Terms</a></li>
+<li><a class="text-primary-fixed/80 hover:text-white hover:underline transition-all text-body-md" href="#">Buyer Protection</a></li>
+<li><a class="text-primary-fixed/80 hover:text-white hover:underline transition-all text-body-md" href="#">Privacy Policy</a></li>
+<li><a class="text-primary-fixed/80 hover:text-white hover:underline transition-all text-body-md" href="#">Shipping Info</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-label-md font-bold text-on-primary mb-lg uppercase tracking-wider">Berlangganan</h4>
+<p class="text-body-md text-primary-fixed/80 mb-md">Dapatkan update promo terbaru langsung di email Anda.</p>
+<div class="flex gap-2">
+<input class="flex-1 bg-primary-container border-none rounded-lg px-4 py-2 text-white placeholder:text-white/40 focus:ring-1 focus:ring-secondary-fixed" placeholder="Email Anda" type="email"/>
+<button class="bg-secondary text-on-secondary px-4 py-2 rounded-lg font-bold hover:bg-secondary/90 transition-all">Daftar</button>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-lg mt-2xl pt-lg border-t border-primary-container flex flex-col md:flex-row justify-between items-center gap-md">
+<p class="text-label-md font-label-md text-primary-fixed/60 text-center md:text-left">© 2024 ModernTrust Marketplace. All rights reserved. Supporting Indonesian MSMEs.</p>
+<div class="flex gap-lg">
+<span class="text-on-primary text-[10px] border border-on-primary/20 px-2 py-1 rounded">VISA</span>
+<span class="text-on-primary text-[10px] border border-on-primary/20 px-2 py-1 rounded">MASTERCARD</span>
+<span class="text-on-primary text-[10px] border border-on-primary/20 px-2 py-1 rounded">GOPAY</span>
+<span class="text-on-primary text-[10px] border border-on-primary/20 px-2 py-1 rounded">OVO</span>
+</div>
+</div>
+</footer>
+<!-- Floating Action Button (WhatsApp Integration) -->
+<a class="fixed bottom-lg right-lg z-50 group" href="https://wa.me/628123456789" target="_blank">
+<div class="relative">
+<div class="absolute inset-0 bg-[#25D366] rounded-full animate-ping opacity-20 group-hover:hidden"></div>
+<div class="bg-[#25D366] text-white p-4 rounded-full shadow-2xl flex items-center gap-2 hover:px-6 transition-all duration-300">
+<svg class="w-6 h-6" fill="currentColor" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.417-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.305 1.652zm6.599-3.835c1.474.873 3.103 1.332 4.751 1.334 5.105 0 9.258-4.152 9.26-9.26 0-2.474-.962-4.799-2.708-6.547-1.746-1.747-4.072-2.71-6.546-2.71-5.106 0-9.26 4.154-9.263 9.261 0 1.741.485 3.44 1.402 4.912l-.938 3.425 3.542-.929zm11.389-6.37c-.314-.157-1.859-.918-2.148-1.022-.289-.105-.499-.157-.709.157-.21.314-.813 1.023-1 1.233-.186.21-.373.236-.687.079-.313-.157-1.324-.488-2.522-1.556-.931-.83-1.558-1.856-1.741-2.17-.184-.313-.02-.483.137-.639.141-.141.314-.367.471-.55.157-.184.21-.314.314-.525.105-.21.053-.393-.026-.55-.079-.157-.709-1.706-.971-2.336-.255-.615-.515-.532-.709-.542-.184-.01-.393-.01-.603-.01s-.551.079-.839.393c-.289.314-1.102 1.076-1.102 2.622 0 1.545 1.128 3.038 1.285 3.248.157.21 2.22 3.391 5.378 4.754.751.325 1.337.518 1.794.663.754.24 1.44.206 1.982.125.603-.09 1.859-.759 2.121-1.493.262-.733.262-1.362.184-1.494-.079-.131-.289-.21-.603-.367z"></path></svg>
+<span class="hidden group-hover:block font-bold whitespace-nowrap overflow-hidden transition-all">Bantuan CS</span>
+</div>
+</div>
+</a>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-surface dark:bg-surface-dim shadow-[0_-4px_8px_0_rgba(0,0,0,0.04)] border-t border-outline-variant/20 flex justify-around items-center px-4 py-3 pb-safe">
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-label-sm font-label-sm-mobile">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="text-label-sm font-label-sm-mobile">Feed</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="text-label-sm font-label-sm-mobile">Cart</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-label-sm font-label-sm-mobile">Profile</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for category icons hover scale
+        const categoryCards = document.querySelectorAll('a.group');
+        categoryCards.forEach(card => {
+            card.addEventListener('mousedown', () => card.style.transform = 'scale(0.95)');
+            card.addEventListener('mouseup', () => card.style.transform = 'scale(1)');
+            card.addEventListener('mouseleave', () => card.style.transform = 'scale(1)');
+        });
+
+        // Simple scroll spy for navbar shadow
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 20) {
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body></html>
