@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Detail Produk - ProMarket</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#121617",
+                    "outline-variant": "#c4c6cd",
+                    "error-container": "#ffdad6",
+                    "surface-variant": "#d3e4fe",
+                    "on-secondary-fixed-variant": "#004395",
+                    "tertiary-fixed": "#e0e3e5",
+                    "surface-container-lowest": "#ffffff",
+                    "outline": "#74777d",
+                    "surface-container-highest": "#d3e4fe",
+                    "surface": "#f8f9ff",
+                    "on-secondary": "#ffffff",
+                    "on-surface-variant": "#44474c",
+                    "primary": "#041627",
+                    "on-primary-container": "#8192a7",
+                    "surface-container": "#e5eeff",
+                    "on-secondary-fixed": "#001a42",
+                    "error": "#ba1a1a",
+                    "primary-fixed-dim": "#b7c8de",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed-dim": "#adc6ff",
+                    "tertiary-container": "#272a2c",
+                    "primary-fixed": "#d2e4fb",
+                    "on-surface": "#0b1c30",
+                    "surface-dim": "#cbdbf5",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#444749",
+                    "secondary": "#0058be",
+                    "tertiary-fixed-dim": "#c4c7c9",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed-variant": "#38485a",
+                    "on-primary-fixed": "#0b1d2d",
+                    "secondary-fixed": "#d8e2ff",
+                    "surface-container-low": "#eff4ff",
+                    "on-background": "#0b1c30",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed": "#191c1e",
+                    "inverse-surface": "#213145",
+                    "on-tertiary-container": "#8e9193",
+                    "primary-container": "#1a2b3c",
+                    "surface-bright": "#f8f9ff",
+                    "surface-tint": "#4f6073",
+                    "surface-container-high": "#dce9ff",
+                    "background": "#f8f9ff",
+                    "inverse-primary": "#b7c8de",
+                    "on-secondary-container": "#fefcff",
+                    "secondary-container": "#2170e4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-max": "1280px",
+                    "gutter": "24px",
+                    "base": "4px",
+                    "lg": "40px",
+                    "xs": "8px",
+                    "sm": "16px",
+                    "md": "24px",
+                    "xl": "64px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "14px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9ff; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .product-gallery-main { aspect-ratio: 1 / 1; }
+    </style>
+</head>
+<body class="text-on-background">
+<!-- Top Navigation Bar -->
+<header class="w-full top-0 sticky bg-surface dark:bg-tertiary shadow-sm z-50 border-b border-outline-variant dark:border-tertiary-container">
+<div class="flex justify-between items-center px-gutter max-w-container-max mx-auto h-20">
+<div class="flex items-center gap-md">
+<span class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed">ProMarket</span>
+<nav class="hidden md:flex gap-md font-body-md text-body-md ml-xl">
+<a class="text-on-surface-variant dark:text-on-tertiary-container hover:text-secondary transition-colors" href="#">Categories</a>
+<a class="text-on-surface-variant dark:text-on-tertiary-container hover:text-secondary transition-colors" href="#">New Arrivals</a>
+<a class="text-on-surface-variant dark:text-on-tertiary-container hover:text-secondary transition-colors" href="#">Deals</a>
+</nav>
+</div>
+<div class="flex-1 max-w-md mx-xl hidden md:block">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-xl focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all" placeholder="Cari produk profesional..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="text-secondary dark:text-secondary-fixed active:scale-95 duration-150 relative">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<button class="text-secondary dark:text-secondary-fixed active:scale-95 duration-150 relative">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="absolute -top-2 -right-2 bg-secondary text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">3</span>
+</button>
+<button class="text-secondary dark:text-secondary-fixed active:scale-95 duration-150">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-gutter py-md">
+<!-- Breadcrumbs -->
+<nav class="flex items-center gap-xs text-on-surface-variant font-label-sm mb-md">
+<a class="hover:text-primary" href="#">Home</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<a class="hover:text-primary" href="#">Elektronik</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-primary font-semibold">Monitor Pro-Series X1</span>
+</nav>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg items-start">
+<!-- Left Column: Image Gallery -->
+<div class="lg:col-span-7 space-y-md">
+<div class="product-gallery-main relative bg-white border border-outline-variant rounded-xl overflow-hidden group">
+<img class="w-full h-full object-cover" data-alt="A high-end 32-inch professional computer monitor displayed in a minimalist home office setting. The monitor features ultra-thin bezels and a sleek metallic stand, reflecting soft natural light from a nearby window. The background is a clean white wall with a subtle architectural shadow, emphasizing a modern corporate aesthetic with cool blue and deep charcoal tones. High-fidelity rendering with sharp details and premium glass textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXxr1I0gYnoz-foFpMOkooWEI6S0_3UYIqWGRvXerZg-_LEL1G7scSxAOPaJC4yJuppVz_O4dQOKlPGW84-8aXWIKpSZ9ufueRmj3b_wAyT_YIKHalPC-o_JNMFPihhWM4ia46gmv2X2ezvGhTxRbZ1e-ya9za418imWqVxTEBIxiirxY9iRw0iPd4tTZvrvn4c2MH_JdL2TEWMQk9qOloDcgcy64NcqGwU2i0eTyl8LKVJtFbMUQI7zRcVGwgrdb8kdtJWkqpNRHH"/>
+<div class="absolute top-4 right-4 flex flex-col gap-xs">
+<button class="bg-white/90 backdrop-blur p-xs rounded-full shadow-lg hover:text-error transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">favorite</span>
+</button>
+<button class="bg-white/90 backdrop-blur p-xs rounded-full shadow-lg hover:text-secondary transition-colors">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-4 md:grid-cols-5 gap-sm">
+<button class="aspect-square rounded-lg border-2 border-secondary overflow-hidden bg-white">
+<img class="w-full h-full object-cover" data-alt="Macro close-up of a professional monitor screen showing vibrant color accuracy and pixel-perfect clarity. The image focuses on a creative software interface with deep blues and contrasting white text, highlighting the display's professional grade quality. Soft studio lighting creates a clean, corporate atmosphere with high-end digital precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3MnTrEQDf0hc-XVrnn7aqwmMdJlTqF_FCAMVLbqNwN053VLQbBQeUXQI2Zq0EN-yl-gizgfO2ojMX60tGCjDOM-Qc7oDavoAq3geNQHVBdxox-dvsYXNJZMhTsmZ_dAs5fOCR0J9RXXrUfPR4cwWpfHo09kiif3P1heWAHzr6HFhpvxd3sZ-jpsWPU532aW29fgDAU8jsdfNUw1JpN5IPIB9QqXsyvGINHnT_RP4_bpqmJ6ctwgM_9yokHRI1BXz0T-GcxsCDL1e7"/>
+</button>
+<button class="aspect-square rounded-lg border border-outline-variant overflow-hidden bg-white hover:border-secondary transition-all">
+<img class="w-full h-full object-cover" data-alt="The side profile of a modern, thin computer monitor showcasing its slim industrial design and premium aluminum finish. The lighting is dramatic, coming from the side to highlight the metallic edges and high-quality build. The aesthetic is professional and sleek, fitting for an executive workspace environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcMbP4DiDwGxmOkQ57nrSRUqn1p4JmCJPNZP5srWqWuwfc-QGPVUPvnBHdfNQL0nmK11jhXtBSQsAx_2u_SXNqlgOqfdzGui5jKVzyUyBloLsxOfNjK0vHlAhwGsUeGuUGSoBfjGufZzlvR_0DiDIKYsUtIIp8spPf_n8PQzeiVVuDATMrpwnxy640DRjgclKybUsUEFc4Q2uZGclfqG1YGY96dG-2zt3RZJVL2VlQ7OIDD88oPhHC9AiVff0sTO5d8IExKcYbgptQ"/>
+</button>
+<button class="aspect-square rounded-lg border border-outline-variant overflow-hidden bg-white hover:border-secondary transition-all">
+<img class="w-full h-full object-cover" data-alt="The back view of a professional workstation monitor showing clean cable management and a robust adjustable stand. The design is functional yet elegant, with a matte black finish and subtle brand engraving. The setting is a clean, bright corporate office with a soft-focus background, maintaining a high-key light mode look." src="https://lh3.googleusercontent.com/aida-public/AB6AXuARIsq7yT9zlkPWv0it6PUPd-Zj0xwxt7sr-l0UokDZupxmGVki3SNbDYf5x0S5uPuzdzdkq8_MmLGCyLYULKbIb0LtD7NAbUnSYRA8w6piKVKQ2QjFXwxVyqgUQgBN_Y3MZU8BcuIrwcdd5oRd4TGOB0putaPZmAL1cYcjtcnNLGM_yMrW1mTsDOkNBjDxyeCKMODo2EbyQzn-DedQ7z08rAkkgxTZ3bYl6mZ7LTTTche3DJ5Qb7kTJAYNcTAm0_A23AAH40_uBce5"/>
+</button>
+<button class="aspect-square rounded-lg border border-outline-variant overflow-hidden bg-white hover:border-secondary transition-all relative">
+<img class="w-full h-full object-cover opacity-50" data-alt="A lifestyle shot of the monitor being used in a dimly lit creative studio, showing the screen's anti-glare properties and high contrast levels. A designer's hands are visible in the foreground, subtly interacting with a keyboard. The mood is focused and professional, utilizing deep shadows and vibrant screen glow." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPrvRtqFvPPxNkhrftCnD0IjcoqKyTbjaqXpUt0At9H7A-XuAqjQ6xPE1351MdWV5SKikLQnjFAaxWFsX4iSATvtexip3Rwq5s1mkPsUhFGz25k5xI18DSB56Fs2zxSR62PoLD9oNyOLRbrLrTdEUcHkhg54dInqOTBup1lY6GJK8_pbU7vEj4rV_KHX2uMlElg8bhfGtev9M6lUc8IcDhw1Czyr1eOi7CsIEcN5PpPeZhTIEQ2dIwxMYA0zU6FEtGCxOf1eSVpvNI"/>
+<div class="absolute inset-0 flex items-center justify-center text-white font-bold">+2</div>
+</button>
+</div>
+</div>
+<!-- Right Column: Product Info & Purchase -->
+<div class="lg:col-span-5 flex flex-col gap-md sticky top-24">
+<div class="space-y-xs">
+<span class="px-2 py-1 bg-secondary text-white text-[10px] font-bold rounded uppercase tracking-wider">Editor's Choice</span>
+<h1 class="font-headline-sm text-headline-sm text-primary">Monitor Pro-Series X1 32" 4K HDR Color Prime</h1>
+<div class="flex items-center gap-sm">
+<div class="flex items-center text-[#FBBF24]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star_half</span>
+<span class="ml-2 text-on-surface-variant font-body-sm">(128 Ulasan)</span>
+</div>
+<span class="text-outline-variant">|</span>
+<span class="text-on-surface-variant font-body-sm">Terjual 540+</span>
+</div>
+<div class="flex items-baseline gap-md mt-sm">
+<span class="text-4xl font-bold text-primary">Rp 12.499.000</span>
+<span class="text-on-surface-variant line-through text-body-md">Rp 14.999.000</span>
+<span class="bg-error-container text-error text-[12px] font-bold px-2 py-0.5 rounded">17% OFF</span>
+</div>
+</div>
+<div class="border-t border-b border-outline-variant py-md space-y-md">
+<!-- Color Varian -->
+<div class="space-y-sm">
+<label class="font-label-md text-primary uppercase">Pilih Warna: <span class="text-on-surface-variant font-normal normal-case ml-2">Midnight Gray</span></label>
+<div class="flex gap-sm">
+<button class="w-12 h-12 rounded-full border-2 border-secondary p-0.5 ring-2 ring-white">
+<div class="w-full h-full rounded-full bg-slate-800"></div>
+</button>
+<button class="w-12 h-12 rounded-full border border-outline-variant p-0.5 hover:border-secondary transition-all">
+<div class="w-full h-full rounded-full bg-slate-200"></div>
+</button>
+<button class="w-12 h-12 rounded-full border border-outline-variant p-0.5 hover:border-secondary transition-all">
+<div class="w-full h-full rounded-full bg-amber-900"></div>
+</button>
+</div>
+</div>
+<!-- Size Varian -->
+<div class="space-y-sm">
+<label class="font-label-md text-primary uppercase">Pilih Ukuran: <span class="text-on-surface-variant font-normal normal-case ml-2">32 Inch</span></label>
+<div class="flex flex-wrap gap-xs">
+<button class="px-md py-xs border border-outline-variant rounded-lg font-body-sm hover:border-secondary transition-all">27 Inch</button>
+<button class="px-md py-xs border-2 border-secondary bg-secondary-container/10 rounded-lg font-bold font-body-sm text-secondary">32 Inch</button>
+<button class="px-md py-xs border border-outline-variant rounded-lg font-body-sm hover:border-secondary transition-all opacity-50 cursor-not-allowed">40 Inch (Kosong)</button>
+</div>
+</div>
+</div>
+<!-- Shipping Calculator -->
+<div class="bg-surface-container-low p-md rounded-xl border border-outline-variant">
+<div class="flex items-center justify-between mb-sm">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary">local_shipping</span>
+<span class="font-label-md text-primary">Kalkulasi Ongkir</span>
+</div>
+<button class="text-secondary font-label-sm hover:underline">Ubah Lokasi</button>
+</div>
+<div class="flex items-center justify-between">
+<div class="text-body-sm">
+<p class="text-on-surface">Dikirim ke <span class="font-bold">Jakarta Selatan, Kebayoran</span></p>
+<p class="text-on-surface-variant text-[12px]">Estimasi tiba: 24 - 26 Apr</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-primary">Rp 45.000</p>
+<p class="text-[10px] text-green-600 font-bold uppercase">Bisa COD</p>
+</div>
+</div>
+</div>
+<!-- Purchase Section -->
+<div class="space-y-md">
+<div class="flex items-center gap-md">
+<div class="flex items-center border border-outline-variant rounded-lg overflow-hidden h-12">
+<button class="px-3 hover:bg-surface-variant transition-colors" onclick="decrementStock()"><span class="material-symbols-outlined text-[20px]">remove</span></button>
+<input class="w-12 text-center border-none focus:ring-0 bg-transparent font-bold" id="stock-input" max="10" min="1" type="number" value="1"/>
+<button class="px-3 hover:bg-surface-variant transition-colors" onclick="incrementStock()"><span class="material-symbols-outlined text-[20px]">add</span></button>
+</div>
+<p class="text-on-surface-variant font-body-sm">Stok tersedia: <span class="font-bold text-primary">24 unit</span></p>
+</div>
+<div class="grid grid-cols-2 gap-md">
+<button class="h-14 border-2 border-primary text-primary font-bold rounded-xl flex items-center justify-center gap-sm hover:bg-primary hover:text-white transition-all active:scale-95">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+                            Keranjang
+                        </button>
+<button class="h-14 bg-secondary text-white font-bold rounded-xl flex items-center justify-center gap-sm hover:bg-secondary-container transition-all shadow-md hover:shadow-lg active:scale-95">
+                            Beli Sekarang
+                        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Details & Reviews Sections -->
+<div class="mt-xl grid grid-cols-1 lg:grid-cols-12 gap-lg">
+<div class="lg:col-span-8 space-y-xl">
+<!-- Description Tab Style -->
+<div class="space-y-md">
+<div class="flex border-b border-outline-variant gap-lg">
+<button class="pb-md border-b-2 border-secondary font-bold text-secondary text-body-md">Deskripsi Produk</button>
+<button class="pb-md text-on-surface-variant font-body-md hover:text-primary transition-colors">Spesifikasi</button>
+<button class="pb-md text-on-surface-variant font-body-md hover:text-primary transition-colors">Diskusi (12)</button>
+</div>
+<div class="prose max-w-none text-on-surface-variant font-body-md leading-relaxed">
+<p>Hadirkan presisi visual tingkat tinggi ke meja kerja Anda dengan <strong>Monitor Pro-Series X1</strong>. Dirancang khusus untuk fotografer, editor video, dan desainer profesional yang membutuhkan akurasi warna mutlak (Delta E &lt; 2).</p>
+<ul class="list-disc pl-5 mt-md space-y-sm">
+<li>Panel 32" 4K IPS dengan cakupan 99% Adobe RGB.</li>
+<li>Sertifikasi VESA DisplayHDR 600 untuk kontras dramatis.</li>
+<li>Teknologi Eye-Care untuk kenyamanan kerja durasi panjang.</li>
+<li>Konektivitas USB-C universal (Power Delivery 90W).</li>
+</ul>
+</div>
+</div>
+<!-- Specifications Table -->
+<div class="space-y-md">
+<h3 class="font-headline-sm text-headline-sm text-primary">Spesifikasi Lengkap</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-sm">
+<div class="flex justify-between p-md bg-white rounded-lg border border-outline-variant">
+<span class="text-on-surface-variant">Ukuran Layar</span>
+<span class="font-semibold text-primary">31.5 Inch</span>
+</div>
+<div class="flex justify-between p-md bg-white rounded-lg border border-outline-variant">
+<span class="text-on-surface-variant">Resolusi</span>
+<span class="font-semibold text-primary">3840 x 2160 (4K)</span>
+</div>
+<div class="flex justify-between p-md bg-white rounded-lg border border-outline-variant">
+<span class="text-on-surface-variant">Refresh Rate</span>
+<span class="font-semibold text-primary">144Hz</span>
+</div>
+<div class="flex justify-between p-md bg-white rounded-lg border border-outline-variant">
+<span class="text-on-surface-variant">Response Time</span>
+<span class="font-semibold text-primary">1ms GtG</span>
+</div>
+<div class="flex justify-between p-md bg-white rounded-lg border border-outline-variant">
+<span class="text-on-surface-variant">Panel Type</span>
+<span class="font-semibold text-primary">Nano IPS</span>
+</div>
+<div class="flex justify-between p-md bg-white rounded-lg border border-outline-variant">
+<span class="text-on-surface-variant">Brightness</span>
+<span class="font-semibold text-primary">600 nits (Peak)</span>
+</div>
+</div>
+</div>
+<!-- Reviews Section -->
+<div class="space-y-lg">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-primary">Ulasan Konsumen</h3>
+<button class="text-secondary font-bold hover:underline">Lihat Semua Ulasan</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-lg p-lg bg-surface-container-low rounded-2xl border border-outline-variant">
+<div class="md:col-span-1 text-center space-y-xs">
+<div class="text-5xl font-extrabold text-primary">4.8</div>
+<div class="flex justify-center text-[#FBBF24]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+<p class="text-on-surface-variant text-body-sm">Dari 128 pembeli</p>
+</div>
+<div class="md:col-span-3 space-y-sm">
+<div class="flex items-center gap-md">
+<span class="w-8 font-label-md">5</span>
+<div class="flex-1 h-2 bg-outline-variant rounded-full overflow-hidden">
+<div class="w-[85%] h-full bg-secondary"></div>
+</div>
+<span class="w-12 text-on-surface-variant text-body-sm text-right">102</span>
+</div>
+<div class="flex items-center gap-md">
+<span class="w-8 font-label-md">4</span>
+<div class="flex-1 h-2 bg-outline-variant rounded-full overflow-hidden">
+<div class="w-[12%] h-full bg-secondary"></div>
+</div>
+<span class="w-12 text-on-surface-variant text-body-sm text-right">18</span>
+</div>
+<div class="flex items-center gap-md">
+<span class="w-8 font-label-md">3</span>
+<div class="flex-1 h-2 bg-outline-variant rounded-full overflow-hidden">
+<div class="w-[3%] h-full bg-secondary"></div>
+</div>
+<span class="w-12 text-on-surface-variant text-body-sm text-right">6</span>
+</div>
+<div class="flex items-center gap-md">
+<span class="w-8 font-label-md">2</span>
+<div class="flex-1 h-2 bg-outline-variant rounded-full overflow-hidden">
+<div class="w-0 h-full bg-secondary"></div>
+</div>
+<span class="w-12 text-on-surface-variant text-body-sm text-right">0</span>
+</div>
+</div>
+</div>
+<!-- Single Review Cards -->
+<div class="space-y-md">
+<div class="p-md bg-white border border-outline-variant rounded-xl space-y-sm">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-white font-bold">AN</div>
+<div>
+<p class="font-bold text-primary">Aditya Nugraha</p>
+<div class="flex text-[#FBBF24] scale-75 origin-left">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+<span class="text-on-surface-variant text-body-sm">2 hari yang lalu</span>
+</div>
+<p class="text-on-surface-variant font-body-md italic">"Kualitas panel luar biasa. Warna sangat akurat langsung dari box. Tidak ada backlight bleed sama sekali. Pengiriman sangat aman dengan bubble wrap tebal."</p>
+<div class="flex gap-sm">
+<div class="w-20 h-20 rounded-lg overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A customer-uploaded photo of the monitor in a dark studio, showing a close-up of a high-resolution 4K landscape image on the screen. The colors are incredibly vibrant and deep, with no visible light leakage around the edges. Professional setup with a mechanical keyboard and mouse visible in the soft foreground blur." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1fV6GcoaCD6aedI5U2TV4zQ6S1P4xXo8B8p_N9W8860ZrArAFKYeFvrPvK7QD7hMaayuVu9cI8qnYBT9SQMIZcGZH4zv8tmxi6XlEUgUZK4ifVg7WnCc3j7zDOvFKkWgq_GFm9dj_ciPauy-pTozY6Ktf6ENAL-WGvS8QPCYA-HBnKcS9EgPCGA6AcaxBv_-RMq5lSiYzjh_7AQNwtn9rPL7CHd3A84PfsARbmGXfjJta4yFZ2KCvQemxJU-K5tAD7UDLFCc6uON0"/>
+</div>
+<div class="w-20 h-20 rounded-lg overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="Another customer photo showing the monitor's connectivity ports on the back, highlighting the clean setup with a single USB-C cable. The workspace is very tidy and professional, featuring a minimalist aesthetic with neutral tones and soft ambient desk lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCf0wGzL0SDruJxXv1UOvJ4-EW-Rw9ySefhu7w_MV3mM4bIMWR76iYwo-k2_LFl4JW0kBnIX27nNXvqtYSxVGtf1PvqeE44-_-RgAnmTjettPcuSi7P86O8agX_DrnbXuWtGwSsLTve-HdByK-4YHr9QqGf9YcmepsDbIBG5ryOzWlrFp8weMePQBwsAV-m9GRFLQDW0RIQ20wkXDB5LpKbqr8a_FoBMbmtJIbJibFrxtZGgVyukACd3fewmwzUtX0OjP2WAbsWnFfL"/>
+</div>
+</div>
+<div class="pt-sm flex items-center gap-md text-on-surface-variant text-body-sm">
+<button class="flex items-center gap-xs hover:text-secondary"><span class="material-symbols-outlined text-[18px]">thumb_up</span> Membantu (12)</button>
+<button class="hover:text-primary">Balas</button>
+</div>
+</div>
+<div class="p-md bg-white border border-outline-variant rounded-xl space-y-sm">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-white font-bold">SR</div>
+<div>
+<p class="font-bold text-primary">Siti Rahayu</p>
+<div class="flex text-[#FBBF24] scale-75 origin-left">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">star</span>
+</div>
+</div>
+</div>
+<span class="text-on-surface-variant text-body-sm">5 hari yang lalu</span>
+</div>
+<p class="text-on-surface-variant font-body-md italic">"Barang ori, garansi resmi terdaftar. Screen-nya jernih banget buat nonton 4K. Sayang pengiriman kurir agak lama dikit tapi seller responsif."</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Sidebar: Recommendations or Cross-sell -->
+<div class="lg:col-span-4 space-y-lg">
+<div class="p-md bg-white border border-outline-variant rounded-2xl shadow-sm space-y-md">
+<h4 class="font-bold text-primary text-body-lg">Sering Dibeli Bersama</h4>
+<div class="space-y-md">
+<div class="flex gap-md group cursor-pointer">
+<div class="w-16 h-16 bg-surface-container-low rounded-lg overflow-hidden border border-outline-variant flex-shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="A premium mechanical keyboard with a minimalist design, featuring high-quality PBT keycaps and a solid aluminum frame. The keyboard is photographed in a clean, bright corporate office setting with soft professional lighting. The color palette consists of cool grays and crisp whites." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2kcQ58K2Z9CVSa8UC2h6dTxpZT0IK2q8on01pObGynrU6pHNGFFkAEuLA8SzJRYSVqio5REZwdl2P3q1SJZRZVE_wNXGK-5em7uDeGraegy2IazxioOSMKgPnncoxkjsChTZnfZHdTpSYWkh8m_6rxVTNYrI6XhHN7-xcAqrz4eVoyAhUamSa8LsM2KKdKh0lbIYCkxJe8TjUhEfj0YW7LGGT_mbZDL6c6g_sKAidpAbu4TgrNBRn4U1DEtNx3rGoqIPfFBFNjfvX"/>
+</div>
+<div class="flex-1 flex flex-col justify-center">
+<p class="text-body-sm font-semibold text-primary truncate">ProMechanical Keyboard K2</p>
+<p class="text-secondary font-bold text-body-sm">Rp 1.250.000</p>
+<button class="text-secondary text-[12px] font-bold mt-1 text-left hover:underline">+ Tambah</button>
+</div>
+</div>
+<div class="flex gap-md group cursor-pointer">
+<div class="w-16 h-16 bg-surface-container-low rounded-lg overflow-hidden border border-outline-variant flex-shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="An ergonomic wireless office mouse with a sleek, contoured design for comfort and precision. The mouse is displayed on a premium gray desk mat with soft-focus office equipment in the background. High-key professional lighting with a clean and modern corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8J5xSpeFKoht3SsS6DPVM_fIx2g7YbqcR_ucS62AvBKt1C7G288EvDQAAeWyXl823NPdufxlreQl3T78SB9x1Sv8hmLZe3vTeFB1ruvCxDK9XSoPIxng6igCySfHCMl06QNbFD3wBQDIBE_JJQrSTjVo_8L05bIHW_i9HfUxC1Tf3fwASUy3gNg4mIhCcSCeAPaKNXfoCo5apUAwUPjMpHGDITnqokdQl6i__9eR12VAF15UkRRbfhZKQGUVK3lER4OnpxNrYV3a7"/>
+</div>
+<div class="flex-1 flex flex-col justify-center">
+<p class="text-body-sm font-semibold text-primary truncate">ProMouse Precision Wireless</p>
+<p class="text-secondary font-bold text-body-sm">Rp 890.000</p>
+<button class="text-secondary text-[12px] font-bold mt-1 text-left hover:underline">+ Tambah</button>
+</div>
+</div>
+<div class="flex gap-md group cursor-pointer">
+<div class="w-16 h-16 bg-surface-container-low rounded-lg overflow-hidden border border-outline-variant flex-shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="A flexible professional monitor arm mount in black, attached to a thick wooden desk. The arm is shown in action, supporting a large screen with clean, concealed cable management. The aesthetic is industrial and modern, suitable for a high-end corporate workstation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBi61byWVRZEE4E91wMbgEW4clrrcbj2uHA4DFO212c8DC8-R7783mVBqnUNl71-hzZ007_U4BEag3O4AW6Gp9nqFmGiE0z83nuKFsLafuYwaZYFu1Cxcla4CfL3TN8nUMvXNe6SCung8r-3wrV-Fa5c-gUfBqTyLU-XOlZe_oiEkfznlLlYVZaCElZ76ZPu5GhTAgXNzpQqq0kXJn3o5iYRW9L19pnz2wpLFmVqAjnnW-N-ERpI_c19jz-2KMg4vm0QGNKVmr-FCqH"/>
+</div>
+<div class="flex-1 flex flex-col justify-center">
+<p class="text-body-sm font-semibold text-primary truncate">Gas-Spring Dual Monitor Arm</p>
+<p class="text-secondary font-bold text-body-sm">Rp 1.450.000</p>
+<button class="text-secondary text-[12px] font-bold mt-1 text-left hover:underline">+ Tambah</button>
+</div>
+</div>
+</div>
+<div class="pt-md border-t border-outline-variant">
+<div class="flex justify-between items-center mb-md">
+<span class="text-on-surface-variant font-body-sm">Total 4 item</span>
+<span class="text-primary font-bold text-body-lg">Rp 16.089.000</span>
+</div>
+<button class="w-full py-3 bg-primary text-white font-bold rounded-xl hover:bg-primary-container transition-all">Beli Semua Paket</button>
+</div>
+</div>
+<!-- Safe Shopping Badge -->
+<div class="p-md bg-green-50 border border-green-200 rounded-xl space-y-sm">
+<div class="flex items-center gap-sm text-green-700">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-bold">ProMarket Safe-Deal</span>
+</div>
+<ul class="text-[12px] text-green-800 space-y-1 opacity-80">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[14px]">check</span> 100% Produk Original</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[14px]">check</span> Garansi 2 Tahun Panel &amp; Suku Cadang</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[14px]">check</span> Layanan On-Site Repair Tersedia</li>
+</ul>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-xl bg-primary dark:bg-tertiary-container border-t border-outline dark:border-outline-variant">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-md px-gutter py-xl max-w-container-max mx-auto text-on-primary dark:text-on-tertiary-container">
+<div class="col-span-2 md:col-span-1 space-y-md">
+<span class="font-headline-sm text-headline-sm text-on-primary font-bold">ProMarket</span>
+<p class="font-body-sm text-on-primary-container leading-relaxed">Platform pengadaan alat profesional terpercaya untuk perusahaan dan freelancer tingkat lanjut.</p>
+</div>
+<div class="space-y-md">
+<h5 class="font-bold font-label-md">Bantuan</h5>
+<ul class="space-y-sm font-body-sm text-on-primary-container">
+<li><a class="hover:text-on-primary transition-opacity opacity-80 hover:opacity-100" href="#">Contact Us</a></li>
+<li><a class="hover:text-on-primary transition-opacity opacity-80 hover:opacity-100" href="#">Shipping Policy</a></li>
+<li><a class="hover:text-on-primary transition-opacity opacity-80 hover:opacity-100" href="#">Payment Methods</a></li>
+</ul>
+</div>
+<div class="space-y-md">
+<h5 class="font-bold font-label-md">Kebijakan</h5>
+<ul class="space-y-sm font-body-sm text-on-primary-container">
+<li><a class="hover:text-on-primary transition-opacity opacity-80 hover:opacity-100" href="#">Privacy</a></li>
+<li><a class="hover:text-on-primary transition-opacity opacity-80 hover:opacity-100" href="#">Terms &amp; Conditions</a></li>
+</ul>
+</div>
+<div class="space-y-md">
+<h5 class="font-bold font-label-md">Newsletter</h5>
+<div class="flex gap-xs">
+<input class="bg-primary-container border-none rounded-lg text-white font-body-sm w-full focus:ring-secondary" placeholder="Email Anda" type="email"/>
+<button class="bg-secondary text-white p-2 rounded-lg"><span class="material-symbols-outlined">send</span></button>
+</div>
+</div>
+</div>
+<div class="border-t border-on-primary/10 py-md text-center font-body-sm text-on-primary-container opacity-60">
+            © 2024 ProMarket Enterprise. All rights reserved.
+        </div>
+</footer>
+<script>
+        function incrementStock() {
+            const input = document.getElementById('stock-input');
+            const val = parseInt(input.value);
+            if (val < 10) input.value = val + 1;
+        }
+
+        function decrementStock() {
+            const input = document.getElementById('stock-input');
+            const val = parseInt(input.value);
+            if (val > 1) input.value = val - 1;
+        }
+
+        // Simple smooth scroll and interaction logic
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                if (this.classList.contains('active:scale-95')) return;
+                this.classList.add('active:scale-95');
+                setTimeout(() => this.classList.remove('active:scale-95'), 150);
+            });
+        });
+    </script>
+</body></html>

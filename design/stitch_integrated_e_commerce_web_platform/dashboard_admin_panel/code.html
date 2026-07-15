@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Console - ProMarket</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#121617",
+                    "outline-variant": "#c4c6cd",
+                    "error-container": "#ffdad6",
+                    "surface-variant": "#d3e4fe",
+                    "on-secondary-fixed-variant": "#004395",
+                    "tertiary-fixed": "#e0e3e5",
+                    "surface-container-lowest": "#ffffff",
+                    "outline": "#74777d",
+                    "surface-container-highest": "#d3e4fe",
+                    "surface": "#f8f9ff",
+                    "on-secondary": "#ffffff",
+                    "on-surface-variant": "#44474c",
+                    "primary": "#041627",
+                    "on-primary-container": "#8192a7",
+                    "surface-container": "#e5eeff",
+                    "on-secondary-fixed": "#001a42",
+                    "error": "#ba1a1a",
+                    "primary-fixed-dim": "#b7c8de",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed-dim": "#adc6ff",
+                    "tertiary-container": "#272a2c",
+                    "primary-fixed": "#d2e4fb",
+                    "on-surface": "#0b1c30",
+                    "surface-dim": "#cbdbf5",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#444749",
+                    "secondary": "#0058be",
+                    "tertiary-fixed-dim": "#c4c7c9",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed-variant": "#38485a",
+                    "on-primary-fixed": "#0b1d2d",
+                    "secondary-fixed": "#d8e2ff",
+                    "surface-container-low": "#eff4ff",
+                    "on-background": "#0b1c30",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed": "#191c1e",
+                    "inverse-surface": "#213145",
+                    "on-tertiary-container": "#8e9193",
+                    "primary-container": "#1a2b3c",
+                    "surface-bright": "#f8f9ff",
+                    "surface-tint": "#4f6073",
+                    "surface-container-high": "#dce9ff",
+                    "background": "#f8f9ff",
+                    "inverse-primary": "#b7c8de",
+                    "on-secondary-container": "#fefcff",
+                    "secondary-container": "#2170e4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-max": "1280px",
+                    "gutter": "24px",
+                    "base": "4px",
+                    "lg": "40px",
+                    "xs": "8px",
+                    "sm": "16px",
+                    "md": "24px",
+                    "xl": "64px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "14px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- Sidebar (Shared Component JSON Mapping) -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-surface-container-low dark:bg-tertiary shadow-lg flex flex-col p-sm gap-xs z-50">
+<div class="px-sm py-md">
+<h1 class="font-headline-sm text-headline-sm text-primary dark:text-primary-fixed font-bold">Admin Console</h1>
+<p class="text-on-surface-variant font-label-sm">Enterprise Portal</p>
+</div>
+<nav class="flex-1 mt-md space-y-1">
+<!-- Active: Dashboard -->
+<a class="bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-lg flex items-center px-sm py-3 gap-md font-label-md transition-all active:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="text-on-surface-variant dark:text-on-tertiary-container hover:bg-surface-variant dark:hover:bg-tertiary-container rounded-lg flex items-center px-sm py-3 gap-md font-label-md transition-all active:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span>Products</span>
+</a>
+<a class="text-on-surface-variant dark:text-on-tertiary-container hover:bg-surface-variant dark:hover:bg-tertiary-container rounded-lg flex items-center px-sm py-3 gap-md font-label-md transition-all active:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span>Orders</span>
+</a>
+<a class="text-on-surface-variant dark:text-on-tertiary-container hover:bg-surface-variant dark:hover:bg-tertiary-container rounded-lg flex items-center px-sm py-3 gap-md font-label-md transition-all active:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">warehouse</span>
+<span>Inventory</span>
+</a>
+<a class="text-on-surface-variant dark:text-on-tertiary-container hover:bg-surface-variant dark:hover:bg-tertiary-container rounded-lg flex items-center px-sm py-3 gap-md font-label-md transition-all active:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">assessment</span>
+<span>Reports</span>
+</a>
+</nav>
+<div class="mt-auto p-sm border-t border-outline-variant">
+<button class="w-full bg-primary text-on-primary py-3 rounded-lg font-label-md hover:opacity-90 transition-opacity active:scale-95 duration-150 flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[20px]">add_chart</span>
+                Generate Report
+            </button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="ml-64 min-h-screen p-md lg:p-lg space-y-md">
+<!-- Header -->
+<header class="flex justify-between items-end mb-lg">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Ringkasan Performa</h2>
+<p class="font-body-md text-on-surface-variant">Selamat datang kembali, admin. Berikut adalah status terkini toko Anda.</p>
+</div>
+<div class="flex gap-sm">
+<div class="flex items-center gap-xs px-md py-2 bg-surface-container rounded-full border border-outline-variant">
+<span class="material-symbols-outlined text-secondary">calendar_today</span>
+<span class="font-label-md">Oct 24, 2024 - Nov 24, 2024</span>
+</div>
+</div>
+</header>
+<!-- Stats Grid (Bento Style) -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-md">
+<div class="md:col-span-1 glass-card p-md rounded-xl shadow-sm group hover:shadow-md transition-all">
+<div class="flex justify-between items-start mb-sm">
+<div class="p-xs bg-secondary-container rounded-lg text-on-secondary-container">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<span class="text-green-600 font-label-sm flex items-center">+12.5% <span class="material-symbols-outlined text-[14px]">trending_up</span></span>
+</div>
+<p class="font-label-md text-on-surface-variant">Total Omzet</p>
+<h3 class="font-headline-sm text-headline-sm mt-xs">Rp 142.850.000</h3>
+</div>
+<div class="md:col-span-1 glass-card p-md rounded-xl shadow-sm group hover:shadow-md transition-all">
+<div class="flex justify-between items-start mb-sm">
+<div class="p-xs bg-surface-container-highest rounded-lg text-primary">
+<span class="material-symbols-outlined">shopping_cart</span>
+</div>
+<span class="text-green-600 font-label-sm flex items-center">+5.2% <span class="material-symbols-outlined text-[14px]">trending_up</span></span>
+</div>
+<p class="font-label-md text-on-surface-variant">Total Pesanan</p>
+<h3 class="font-headline-sm text-headline-sm mt-xs">1,284</h3>
+</div>
+<div class="md:col-span-2 glass-card p-md rounded-xl shadow-sm overflow-hidden relative group">
+<div class="relative z-10">
+<div class="flex justify-between items-center mb-sm">
+<div>
+<p class="font-label-md text-on-surface-variant">Tren Penjualan Mingguan</p>
+<h3 class="font-headline-sm text-headline-sm">Peningkatan Stabil</h3>
+</div>
+<div class="p-xs bg-primary-container rounded-lg text-white">
+<span class="material-symbols-outlined">insights</span>
+</div>
+</div>
+<!-- Placeholder for Chart Graphics -->
+<div class="h-16 flex items-end gap-1 mt-sm">
+<div class="w-full bg-secondary opacity-20 h-[30%] rounded-t-sm"></div>
+<div class="w-full bg-secondary opacity-40 h-[50%] rounded-t-sm"></div>
+<div class="w-full bg-secondary opacity-30 h-[40%] rounded-t-sm"></div>
+<div class="w-full bg-secondary opacity-60 h-[70%] rounded-t-sm"></div>
+<div class="w-full bg-secondary opacity-50 h-[60%] rounded-t-sm"></div>
+<div class="w-full bg-secondary opacity-80 h-[90%] rounded-t-sm"></div>
+<div class="w-full bg-secondary h-full rounded-t-sm"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Middle Section: Stock & Top Products -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-md">
+<!-- Manajemen Stok & Notifikasi -->
+<section class="lg:col-span-1 glass-card p-md rounded-xl">
+<div class="flex justify-between items-center mb-md">
+<h4 class="font-label-md text-on-surface uppercase tracking-wider">Peringatan Stok</h4>
+<span class="bg-error-container text-on-error-container px-sm py-1 rounded-full text-[10px] font-bold uppercase">Kritis</span>
+</div>
+<div class="space-y-sm">
+<!-- Stock Alert Item -->
+<div class="flex items-center gap-sm p-sm rounded-lg bg-surface-container-low border border-outline-variant border-dashed">
+<div class="w-12 h-12 rounded bg-white flex items-center justify-center border border-outline-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional high-angle studio shot of a sleek wireless mechanical keyboard with blue RGB lighting against a clean white background. The image has a sharp corporate aesthetic with neutral tones and highlights of technical precision. Modern minimalist photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBqlCVyT0BMlNUtG-Sk27z2pz64G6T23F6UUbyykp0T_qAcdQ49XXJN8zVpfY8Ssd9yVaV572cM0AJkD9bk4VM148kSuky9EQeOYLQtHFUbX-8Bg-XhxRdDdt5X_WF9PiDuOQtD9CLAsr568G-zE-6aF6EScGouZiRpZHmz_0xMEwECr-Jh_anjOv3lnZY_jmYXNc6dfV7vFtoJ4nAN28wLu9U0gXs6gZZEM3DfuvNQ_02x0f5G1wd54_JhKo_oy6I7b8g9PzbvmEY"/>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-on-surface truncate">Keychron K2 V2</p>
+<div class="flex items-center gap-xs">
+<div class="flex-1 h-1 bg-outline-variant rounded-full overflow-hidden">
+<div class="w-[12%] h-full bg-error"></div>
+</div>
+<span class="text-error font-label-sm">3 Sisa</span>
+</div>
+</div>
+</div>
+<!-- Stock Alert Item -->
+<div class="flex items-center gap-sm p-sm rounded-lg bg-surface-container-low border border-outline-variant border-dashed">
+<div class="w-12 h-12 rounded bg-white flex items-center justify-center border border-outline-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up product photography of a professional ergonomic mouse with a matte charcoal finish. Soft diffused lighting highlights the contours and textures. Set against a light gray minimalist background suitable for a corporate dashboard. High quality tech aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVKFzfFnbNyws9uSGRGbBDnPgVmW8vWuDnUQTD8qHgsaJe5evrpGeg3eH0JBrFG_9VRoAPcafRiY53MRVoqCO4JpBmw2rP48ttwS6pLyctnMiRp0fzm8siRadcbiWCXu09OitXdGJUmxtT5HUAVXMaK6Cb4NVsT_HFPSd2vghx3EfVwNmlLHv9ydwsG2Sq_-0zbnqAo0FGdbTGf151fLx-YU3nDVQ0CKB_1LZ4oHQ5b0xPMBCXkUdddDqj2-RFnBdMtDKXHoeghvz1"/>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-on-surface truncate">Logitech MX Master 3S</p>
+<div class="flex items-center gap-xs">
+<div class="flex-1 h-1 bg-outline-variant rounded-full overflow-hidden">
+<div class="w-[20%] h-full bg-error"></div>
+</div>
+<span class="text-error font-label-sm">5 Sisa</span>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full mt-md text-secondary font-label-md hover:underline flex items-center justify-center gap-xs">
+                    Lihat Semua Stok <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</section>
+<!-- Produk Terlaris -->
+<section class="lg:col-span-2 glass-card p-md rounded-xl">
+<div class="flex justify-between items-center mb-md">
+<h4 class="font-label-md text-on-surface uppercase tracking-wider">Produk Terlaris</h4>
+<select class="bg-transparent border-none font-label-sm text-secondary focus:ring-0 cursor-pointer">
+<option>Bulan Ini</option>
+<option>Minggu Ini</option>
+</select>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-sm">
+<div class="p-sm flex items-center gap-md border border-outline-variant rounded-lg hover:bg-surface-container transition-colors">
+<span class="text-headline-sm font-bold text-outline-variant">01</span>
+<div class="flex-1">
+<p class="font-label-md font-bold">MacBook Pro M2 14"</p>
+<p class="text-on-surface-variant text-[12px]">42 terjual</p>
+</div>
+<p class="font-label-md text-secondary">Rp 28.9jt</p>
+</div>
+<div class="p-sm flex items-center gap-md border border-outline-variant rounded-lg hover:bg-surface-container transition-colors">
+<span class="text-headline-sm font-bold text-outline-variant">02</span>
+<div class="flex-1">
+<p class="font-label-md font-bold">Sony WH-1000XM5</p>
+<p class="text-on-surface-variant text-[12px]">38 terjual</p>
+</div>
+<p class="font-label-md text-secondary">Rp 5.2jt</p>
+</div>
+<div class="p-sm flex items-center gap-md border border-outline-variant rounded-lg hover:bg-surface-container transition-colors">
+<span class="text-headline-sm font-bold text-outline-variant">03</span>
+<div class="flex-1">
+<p class="font-label-md font-bold">Dell UltraSharp 27"</p>
+<p class="text-on-surface-variant text-[12px]">31 terjual</p>
+</div>
+<p class="font-label-md text-secondary">Rp 8.4jt</p>
+</div>
+<div class="p-sm flex items-center gap-md border border-outline-variant rounded-lg hover:bg-surface-container transition-colors">
+<span class="text-headline-sm font-bold text-outline-variant">04</span>
+<div class="flex-1">
+<p class="font-label-md font-bold">Secretlab Titan EVO</p>
+<p class="text-on-surface-variant text-[12px]">29 terjual</p>
+</div>
+<p class="font-label-md text-secondary">Rp 7.1jt</p>
+</div>
+</div>
+</section>
+</div>
+<!-- Recent Orders Table -->
+<section class="glass-card rounded-xl overflow-hidden">
+<div class="p-md border-b border-outline-variant flex justify-between items-center bg-white/50">
+<h4 class="font-label-md text-on-surface uppercase tracking-wider">Pesanan Terbaru</h4>
+<div class="flex gap-sm">
+<button class="flex items-center gap-xs px-sm py-2 bg-surface-container-high text-primary rounded-lg font-label-md hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-[20px]">filter_list</span> Filter
+                    </button>
+<button class="flex items-center gap-xs px-sm py-2 bg-secondary text-on-secondary rounded-lg font-label-md shadow-sm hover:opacity-90 transition-all">
+<span class="material-symbols-outlined text-[20px]">print</span> Cetak Resi Massal
+                    </button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low">
+<tr>
+<th class="px-md py-sm font-label-md text-on-surface-variant">ID Pesanan</th>
+<th class="px-md py-sm font-label-md text-on-surface-variant">Pelanggan</th>
+<th class="px-md py-sm font-label-md text-on-surface-variant">Produk</th>
+<th class="px-md py-sm font-label-md text-on-surface-variant">Status</th>
+<th class="px-md py-sm font-label-md text-on-surface-variant">Total</th>
+<th class="px-md py-sm font-label-md text-on-surface-variant text-right">Aksi</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-md py-md font-body-sm text-primary font-bold">#ORD-88219</td>
+<td class="px-md py-md">
+<div class="flex items-center gap-xs">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold text-[12px]">AN</div>
+<span class="font-body-sm">Ahmad Nurman</span>
+</div>
+</td>
+<td class="px-md py-md font-body-sm text-on-surface-variant">MacBook Pro M2, Mouse MX Master</td>
+<td class="px-md py-md">
+<span class="bg-blue-100 text-blue-700 px-sm py-1 rounded-full text-[12px] font-semibold">Diproses</span>
+</td>
+<td class="px-md py-md font-body-sm font-semibold">Rp 30.150.000</td>
+<td class="px-md py-md text-right">
+<button class="text-secondary hover:bg-secondary/10 p-2 rounded-lg transition-colors" title="Cetak Resi">
+<span class="material-symbols-outlined">print</span>
+</button>
+<button class="text-on-surface-variant hover:bg-surface-variant p-2 rounded-lg transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-md py-md font-body-sm text-primary font-bold">#ORD-88218</td>
+<td class="px-md py-md">
+<div class="flex items-center gap-xs">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-primary flex items-center justify-center font-bold text-[12px]">SP</div>
+<span class="font-body-sm">Siti Pertiwi</span>
+</div>
+</td>
+<td class="px-md py-md font-body-sm text-on-surface-variant">Sony WH-1000XM5 Black</td>
+<td class="px-md py-md">
+<span class="bg-amber-100 text-amber-700 px-sm py-1 rounded-full text-[12px] font-semibold">Dikirim</span>
+</td>
+<td class="px-md py-md font-body-sm font-semibold">Rp 5.200.000</td>
+<td class="px-md py-md text-right">
+<button class="text-secondary hover:bg-secondary/10 p-2 rounded-lg transition-colors" title="Cetak Resi">
+<span class="material-symbols-outlined">print</span>
+</button>
+<button class="text-on-surface-variant hover:bg-surface-variant p-2 rounded-lg transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-md py-md font-body-sm text-primary font-bold">#ORD-88217</td>
+<td class="px-md py-md">
+<div class="flex items-center gap-xs">
+<div class="w-8 h-8 rounded-full bg-green-100 text-green-700 flex items-center justify-center font-bold text-[12px]">RM</div>
+<span class="font-body-sm">Raka Maulana</span>
+</div>
+</td>
+<td class="px-md py-md font-body-sm text-on-surface-variant">Secretlab Titan EVO - Fabric</td>
+<td class="px-md py-md">
+<span class="bg-green-100 text-green-700 px-sm py-1 rounded-full text-[12px] font-semibold">Selesai</span>
+</td>
+<td class="px-md py-md font-body-sm font-semibold">Rp 7.100.000</td>
+<td class="px-md py-md text-right">
+<button class="text-secondary hover:bg-secondary/10 p-2 rounded-lg transition-colors" title="Cetak Resi">
+<span class="material-symbols-outlined">print</span>
+</button>
+<button class="text-on-surface-variant hover:bg-surface-variant p-2 rounded-lg transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-sm bg-surface-container-low flex justify-center">
+<button class="text-secondary font-label-md hover:underline">Muat Lebih Banyak...</button>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component JSON Mapping) -->
+<footer class="ml-64 bg-primary dark:bg-tertiary-container text-on-primary dark:text-on-tertiary-container grid grid-cols-4 gap-md px-gutter py-xl max-w-container-max mx-auto border-t border-outline dark:border-outline-variant">
+<div class="col-span-1">
+<h5 class="font-headline-sm text-headline-sm text-on-primary font-bold mb-sm">ProMarket</h5>
+<p class="font-body-sm text-on-primary-container dark:text-on-tertiary-fixed-variant">Enterprise Back-End Solution for Professionals.</p>
+</div>
+<div class="col-span-1 space-y-xs">
+<p class="font-label-md font-bold">Navigasi</p>
+<ul class="space-y-xs">
+<li><a class="font-body-sm opacity-80 hover:opacity-100 transition-opacity" href="#">Contact Us</a></li>
+<li><a class="font-body-sm opacity-80 hover:opacity-100 transition-opacity" href="#">Shipping Policy</a></li>
+</ul>
+</div>
+<div class="col-span-1 space-y-xs">
+<p class="font-label-md font-bold">Legal</p>
+<ul class="space-y-xs">
+<li><a class="font-body-sm opacity-80 hover:opacity-100 transition-opacity" href="#">Privacy</a></li>
+<li><a class="font-body-sm opacity-80 hover:opacity-100 transition-opacity" href="#">Terms</a></li>
+</ul>
+</div>
+<div class="col-span-1">
+<p class="font-body-sm opacity-80">© 2024 ProMarket Enterprise. All rights reserved.</p>
+</div>
+</footer>
+<!-- Simple Interactivity -->
+<script>
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                if(this.innerText.includes('Cetak Resi')) {
+                    const id = this.closest('tr')?.querySelector('td')?.innerText || 'Order';
+                    alert('Mencetak resi untuk ' + id + '...');
+                }
+            });
+        });
+    </script>
+</body></html>

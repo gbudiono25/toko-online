@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Keranjang Belanja - ProMarket</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary": "#121617",
+                        "outline-variant": "#c4c6cd",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#d3e4fe",
+                        "on-secondary-fixed-variant": "#004395",
+                        "tertiary-fixed": "#e0e3e5",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#74777d",
+                        "surface-container-highest": "#d3e4fe",
+                        "surface": "#f8f9ff",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#44474c",
+                        "primary": "#041627",
+                        "on-primary-container": "#8192a7",
+                        "surface-container": "#e5eeff",
+                        "on-secondary-fixed": "#001a42",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#b7c8de",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "tertiary-container": "#272a2c",
+                        "primary-fixed": "#d2e4fb",
+                        "on-surface": "#0b1c30",
+                        "surface-dim": "#cbdbf5",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#444749",
+                        "secondary": "#0058be",
+                        "tertiary-fixed-dim": "#c4c7c9",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#38485a",
+                        "on-primary-fixed": "#0b1d2d",
+                        "secondary-fixed": "#d8e2ff",
+                        "surface-container-low": "#eff4ff",
+                        "on-background": "#0b1c30",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed": "#191c1e",
+                        "inverse-surface": "#213145",
+                        "on-tertiary-container": "#8e9193",
+                        "primary-container": "#1a2b3c",
+                        "surface-bright": "#f8f9ff",
+                        "surface-tint": "#4f6073",
+                        "surface-container-high": "#dce9ff",
+                        "background": "#f8f9ff",
+                        "inverse-primary": "#b7c8de",
+                        "on-secondary-container": "#fefcff",
+                        "secondary-container": "#2170e4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "base": "4px",
+                        "lg": "40px",
+                        "xs": "8px",
+                        "sm": "16px",
+                        "md": "24px",
+                        "xl": "64px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar -->
+<nav class="w-full top-0 sticky z-50 bg-surface border-b border-outline-variant shadow-sm h-20">
+<div class="flex justify-between items-center px-gutter max-w-container-max mx-auto h-full">
+<div class="flex items-center gap-md">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">ProMarket</span>
+<div class="hidden md:flex gap-md ml-lg">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Categories</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">New Arrivals</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Deals</a>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="hidden sm:flex items-center bg-surface-container-low px-sm py-xs rounded-xl border border-outline-variant">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm w-48" placeholder="Cari produk..." type="text"/>
+</div>
+<div class="flex gap-sm">
+<button class="active:scale-95 duration-150"><span class="material-symbols-outlined text-secondary">favorite</span></button>
+<button class="active:scale-95 duration-150 relative">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
+<span class="absolute -top-1 -right-1 bg-secondary text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">2</span>
+</button>
+<button class="active:scale-95 duration-150"><span class="material-symbols-outlined text-secondary">account_circle</span></button>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-container-max mx-auto px-gutter py-lg min-h-screen">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg">
+<!-- Left Column: Cart & Shipping -->
+<div class="lg:col-span-8 space-y-md">
+<h1 class="font-headline-sm text-headline-sm text-primary mb-md">Keranjang Belanja</h1>
+<!-- Cart Item List -->
+<div class="bg-white rounded-xl border border-outline-variant overflow-hidden shadow-sm">
+<!-- Item 1 -->
+<div class="p-md flex flex-col sm:flex-row gap-md border-b border-outline-variant items-center sm:items-start">
+<div class="w-32 h-32 flex-shrink-0 bg-surface-container-low rounded-lg overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional high-end workstation laptop placed on a minimalist white desk with soft corporate studio lighting. The laptop has a sleek metallic finish in deep charcoal, reflecting the clean, modern office environment. High-quality product photography style, emphasizing industrial design and premium build quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAI3oIzdFOkNSGxLZaUTgLJvvcY8AAM_zIgn5ys1OXDaaKIpVxAwWvHOrFPk9R7CT3FHrxvnGhwvuz_GWSBH7x-eBPCmdYi6TEw3J9vVTbd8MGYrtYxnCnCqB4FasE2rAFHCaFCRcVTJe9J4AoqSog_lis7PV_z66NBStbgXl9Zbebgjm0Im43mKo14WUaip1yJGOBmBkeeQtoxIq62wPRllvxtbUuxaXQs9r3C-X3YJ09-P4uLNrsPrboTHK7E5iWRILfHUywuz_2x"/>
+</div>
+<div class="flex-grow space-y-xs text-center sm:text-left">
+<div class="flex justify-between items-start">
+<h3 class="font-headline-sm text-lg text-primary">ProStation X-200 Enterprise Edition</h3>
+<button class="text-error hover:opacity-80 transition-opacity"><span class="material-symbols-outlined">delete</span></button>
+</div>
+<p class="text-body-sm text-on-surface-variant">Varian: 32GB RAM, 1TB SSD - Space Grey</p>
+<p class="text-primary font-bold text-lg">Rp 24.500.000</p>
+<div class="flex items-center justify-center sm:justify-start gap-md pt-sm">
+<div class="flex items-center border border-outline rounded-lg bg-surface-container-lowest">
+<button class="px-sm py-base hover:bg-surface-variant transition-colors" onclick="this.parentNode.querySelector('input').stepDown()">-</button>
+<input class="w-12 text-center border-none bg-transparent focus:ring-0 font-bold" min="1" type="number" value="1"/>
+<button class="px-sm py-base hover:bg-surface-variant transition-colors" onclick="this.parentNode.querySelector('input').stepUp()">+</button>
+</div>
+<span class="text-on-surface-variant text-body-sm">Subtotal: Rp 24.500.000</span>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="p-md flex flex-col sm:flex-row gap-md items-center sm:items-start">
+<div class="w-32 h-32 flex-shrink-0 bg-surface-container-low rounded-lg overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional ultra-wide curved monitor with a thin bezel and premium aluminum stand. The screen displays a complex data visualization dashboard with deep blues and vibrant accents. The lighting is moody yet clear, with subtle rim lighting to highlight the slim profile of the hardware. Modern corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEXrzV7otZB7-ZRjppQkhHcGThpTj8o4ANAalogx9GqScMFWhIyKvGH2Wy00C9yIH55SZdNnbEvwDilzo4tGyvVwDuoEFrFgJYQXkTKiT0d1fL2NwAjhy0-Z-ixureOfr2YYt-kMgjeGwEHa8v8i-jsONmXjUD_1bzeuLsMhzQQfwdbubSvfQHkc1qA2T6-fv1UDokfwiy1RajdnVwv4Slhtpo_2huG2UXDG-_-RM0U4T6VbLofuzS2A_UI3ut9YBkZpPqiRueCIza"/>
+</div>
+<div class="flex-grow space-y-xs text-center sm:text-left">
+<div class="flex justify-between items-start">
+<h3 class="font-headline-sm text-lg text-primary">UltraWide Vision Pro 34"</h3>
+<button class="text-error hover:opacity-80 transition-opacity"><span class="material-symbols-outlined">delete</span></button>
+</div>
+<p class="text-body-sm text-on-surface-variant">Varian: 144Hz Refresh Rate</p>
+<p class="text-primary font-bold text-lg">Rp 8.750.000</p>
+<div class="flex items-center justify-center sm:justify-start gap-md pt-sm">
+<div class="flex items-center border border-outline rounded-lg bg-surface-container-lowest">
+<button class="px-sm py-base hover:bg-surface-variant transition-colors" onclick="this.parentNode.querySelector('input').stepDown()">-</button>
+<input class="w-12 text-center border-none bg-transparent focus:ring-0 font-bold" min="1" type="number" value="1"/>
+<button class="px-sm py-base hover:bg-surface-variant transition-colors" onclick="this.parentNode.querySelector('input').stepUp()">+</button>
+</div>
+<span class="text-on-surface-variant text-body-sm">Subtotal: Rp 8.750.000</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Shipping Options -->
+<div class="bg-white p-md rounded-xl border border-outline-variant shadow-sm space-y-md">
+<h2 class="font-headline-sm text-lg text-primary flex items-center gap-xs">
+<span class="material-symbols-outlined text-secondary">local_shipping</span> 
+                        Pilih Ekspedisi Pengiriman
+                    </h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-sm">
+<label class="relative flex cursor-pointer rounded-lg border border-outline-variant p-md focus:outline-none hover:bg-surface-container-low transition-colors group">
+<input checked="" class="hidden peer" name="shipping" type="radio" value="reg"/>
+<div class="flex w-full items-center justify-between">
+<div class="flex items-center">
+<div class="text-sm">
+<p class="font-bold text-primary">J&amp;T Express (Regular)</p>
+<p class="text-on-surface-variant">Estimasi 2-3 hari kerja</p>
+</div>
+</div>
+<p class="text-secondary font-bold">Rp 25.000</p>
+</div>
+<div class="absolute -inset-px rounded-lg border-2 border-transparent peer-checked:border-secondary pointer-events-none"></div>
+</label>
+<label class="relative flex cursor-pointer rounded-lg border border-outline-variant p-md focus:outline-none hover:bg-surface-container-low transition-colors group">
+<input class="hidden peer" name="shipping" type="radio" value="ons"/>
+<div class="flex w-full items-center justify-between">
+<div class="flex items-center">
+<div class="text-sm">
+<p class="font-bold text-primary">SiCepat BEST (Overnight)</p>
+<p class="text-on-surface-variant">Estimasi besok sampai</p>
+</div>
+</div>
+<p class="text-secondary font-bold">Rp 45.000</p>
+</div>
+<div class="absolute -inset-px rounded-lg border-2 border-transparent peer-checked:border-secondary pointer-events-none"></div>
+</label>
+<label class="relative flex cursor-pointer rounded-lg border border-outline-variant p-md focus:outline-none hover:bg-surface-container-low transition-colors group">
+<input class="hidden peer" name="shipping" type="radio" value="inst"/>
+<div class="flex w-full items-center justify-between">
+<div class="flex items-center">
+<div class="text-sm">
+<p class="font-bold text-primary">Gojek/Grab Instant</p>
+<p class="text-on-surface-variant">Estimasi 2-4 jam</p>
+</div>
+</div>
+<p class="text-secondary font-bold">Rp 85.000</p>
+</div>
+<div class="absolute -inset-px rounded-lg border-2 border-transparent peer-checked:border-secondary pointer-events-none"></div>
+</label>
+<label class="relative flex cursor-pointer rounded-lg border border-outline-variant p-md focus:outline-none hover:bg-surface-container-low transition-colors group">
+<input class="hidden peer" name="shipping" type="radio" value="cargo"/>
+<div class="flex w-full items-center justify-between">
+<div class="flex items-center">
+<div class="text-sm">
+<p class="font-bold text-primary">JNE Trucking (Cargo)</p>
+<p class="text-on-surface-variant">Estimasi 5-7 hari kerja</p>
+</div>
+</div>
+<p class="text-secondary font-bold">Rp 12.000</p>
+</div>
+<div class="absolute -inset-px rounded-lg border-2 border-transparent peer-checked:border-secondary pointer-events-none"></div>
+</label>
+</div>
+</div>
+<!-- Payment Methods -->
+<div class="bg-white p-md rounded-xl border border-outline-variant shadow-sm space-y-md">
+<h2 class="font-headline-sm text-lg text-primary flex items-center gap-xs">
+<span class="material-symbols-outlined text-secondary">account_balance_wallet</span> 
+                        Metode Pembayaran
+                    </h2>
+<div class="space-y-sm">
+<!-- Virtual Account -->
+<div class="border border-outline-variant rounded-lg overflow-hidden">
+<button class="w-full flex items-center justify-between p-md bg-surface-container-low hover:bg-surface-variant transition-colors" onclick="document.getElementById('va-options').classList.toggle('hidden')">
+<span class="font-bold text-primary">Virtual Account (VA)</span>
+<span class="material-symbols-outlined">expand_more</span>
+</button>
+<div class="hidden p-md grid grid-cols-2 sm:grid-cols-4 gap-md border-t border-outline-variant" id="va-options">
+<div class="flex flex-col items-center gap-xs cursor-pointer grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100">
+<div class="h-10 w-16 bg-surface-container-high rounded flex items-center justify-center font-black text-blue-800 italic">BCA</div>
+<span class="text-[10px] font-bold uppercase">BCA VA</span>
+</div>
+<div class="flex flex-col items-center gap-xs cursor-pointer grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100">
+<div class="h-10 w-16 bg-surface-container-high rounded flex items-center justify-center font-black text-blue-600">Mandiri</div>
+<span class="text-[10px] font-bold uppercase">Mandiri VA</span>
+</div>
+<div class="flex flex-col items-center gap-xs cursor-pointer grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100">
+<div class="h-10 w-16 bg-surface-container-high rounded flex items-center justify-center font-black text-orange-600">BNI</div>
+<span class="text-[10px] font-bold uppercase">BNI VA</span>
+</div>
+<div class="flex flex-col items-center gap-xs cursor-pointer grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100">
+<div class="h-10 w-16 bg-surface-container-high rounded flex items-center justify-center font-black text-red-600">BRI</div>
+<span class="text-[10px] font-bold uppercase">BRI VA</span>
+</div>
+</div>
+</div>
+<!-- E-Wallet & QRIS -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-sm">
+<label class="flex items-center gap-md border border-outline-variant p-md rounded-lg cursor-pointer hover:bg-surface-container-low peer-checked:border-secondary transition-all">
+<input class="w-4 h-4 text-secondary focus:ring-secondary" name="payment" type="radio"/>
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-secondary text-white flex items-center justify-center"><span class="material-symbols-outlined text-sm">qr_code_2</span></div>
+<span class="font-bold text-primary">QRIS</span>
+</div>
+</label>
+<label class="flex items-center gap-md border border-outline-variant p-md rounded-lg cursor-pointer hover:bg-surface-container-low transition-all">
+<input class="w-4 h-4 text-secondary focus:ring-secondary" name="payment" type="radio"/>
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-blue-500 text-white flex items-center justify-center"><span class="material-symbols-outlined text-sm">account_balance_wallet</span></div>
+<span class="font-bold text-primary">E-Wallet (GoPay/OVO/Dana)</span>
+</div>
+</label>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Summary -->
+<div class="lg:col-span-4">
+<div class="sticky top-24 space-y-md">
+<!-- Promo Section -->
+<div class="bg-white p-md rounded-xl border border-outline-variant shadow-sm space-y-sm">
+<label class="font-bold text-primary text-sm">Kupon &amp; Diskon</label>
+<div class="flex gap-xs">
+<input class="flex-grow border border-outline rounded-lg px-sm focus:ring-2 focus:ring-secondary focus:border-secondary transition-all" placeholder="Masukkan kode promo" type="text"/>
+<button class="bg-primary text-white px-md py-sm rounded-lg font-bold hover:bg-primary-container transition-colors">Terapkan</button>
+</div>
+<div class="flex items-center gap-xs p-xs bg-surface-container border border-dashed border-secondary rounded-lg">
+<span class="material-symbols-outlined text-secondary text-sm">confirmation_number</span>
+<span class="text-xs text-on-surface-variant font-medium">Hemat Rp 50.000 dengan "PROMONTHLY"</span>
+</div>
+</div>
+<!-- Order Summary -->
+<div class="bg-white p-md rounded-xl border border-outline-variant shadow-sm space-y-md">
+<h2 class="font-headline-sm text-lg text-primary">Ringkasan Belanja</h2>
+<div class="space-y-sm">
+<div class="flex justify-between text-on-surface-variant">
+<span>Total Harga (2 barang)</span>
+<span>Rp 33.250.000</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Total Ongkos Kirim</span>
+<span>Rp 25.000</span>
+</div>
+<div class="flex justify-between text-error font-medium">
+<span>Diskon Promo</span>
+<span>- Rp 50.000</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Biaya Layanan</span>
+<span>Rp 2.000</span>
+</div>
+<hr class="border-outline-variant"/>
+<div class="flex justify-between items-center pt-xs">
+<span class="font-bold text-primary text-lg">Total Tagihan</span>
+<span class="font-bold text-secondary text-xl">Rp 33.227.000</span>
+</div>
+</div>
+<button class="w-full bg-secondary text-white py-md rounded-xl font-bold text-lg hover:bg-secondary-container hover:shadow-lg transition-all active:scale-[0.98]">
+                            Bayar Sekarang
+                        </button>
+<div class="flex items-center justify-center gap-xs text-[10px] text-outline uppercase tracking-widest font-bold pt-sm">
+<span class="material-symbols-outlined text-xs">verified_user</span>
+                            Pembayaran Aman &amp; Terenkripsi
+                        </div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-xl bg-primary border-t border-outline">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-md px-gutter py-xl max-w-container-max mx-auto">
+<div class="space-y-md">
+<span class="font-headline-sm text-headline-sm text-on-primary">ProMarket</span>
+<p class="text-on-primary-container text-body-sm leading-relaxed">Penyedia solusi perangkat kerja profesional terbaik untuk meningkatkan produktivitas enterprise Anda.</p>
+</div>
+<div class="space-y-sm">
+<h4 class="text-on-primary font-bold">Layanan Pelanggan</h4>
+<ul class="space-y-xs">
+<li><a class="text-on-primary-container text-body-sm hover:text-on-primary transition-opacity" href="#">Contact Us</a></li>
+<li><a class="text-on-primary-container text-body-sm hover:text-on-primary transition-opacity" href="#">Shipping Policy</a></li>
+<li><a class="text-on-primary-container text-body-sm hover:text-on-primary transition-opacity" href="#">Payment Methods</a></li>
+</ul>
+</div>
+<div class="space-y-sm">
+<h4 class="text-on-primary font-bold">Tentang Kami</h4>
+<ul class="space-y-xs">
+<li><a class="text-on-primary-container text-body-sm hover:text-on-primary transition-opacity" href="#">Karir</a></li>
+<li><a class="text-on-primary-container text-body-sm hover:text-on-primary transition-opacity" href="#">Privacy</a></li>
+<li><a class="text-on-primary-container text-body-sm hover:text-on-primary transition-opacity" href="#">Terms</a></li>
+</ul>
+</div>
+<div class="space-y-sm">
+<h4 class="text-on-primary font-bold">Berlangganan</h4>
+<p class="text-on-primary-container text-body-sm">Dapatkan info promo terbaru.</p>
+<div class="flex bg-tertiary-container rounded-lg p-xs">
+<input class="bg-transparent border-none focus:ring-0 text-white text-xs flex-grow" placeholder="Email Anda" type="email"/>
+<button class="bg-secondary text-white px-md py-xs rounded-lg text-xs font-bold">Ikuti</button>
+</div>
+</div>
+</div>
+<div class="border-t border-primary-container py-md text-center">
+<p class="text-on-tertiary-fixed-variant text-[12px] font-body-sm">© 2024 ProMarket Enterprise. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Micro-interactions and real-time feel
+        document.querySelectorAll('input[name="shipping"]').forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                // In a real app, we would update the summary total here
+                console.log("Selected shipping:", e.target.value);
+            });
+        });
+
+        // Simple qty change effect
+        document.querySelectorAll('input[type="number"]').forEach(input => {
+            input.addEventListener('change', function() {
+                if(this.value < 1) this.value = 1;
+            });
+        });
+    </script>
+</body></html>
