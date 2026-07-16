@@ -1,4 +1,7 @@
+import { useCart } from '../context/CartContext'
+
 export default function Header() {
+  const { totalItems, toggleDrawer } = useCart()
   return (
     <header className="bg-surface w-full top-0 sticky z-50 border-b border-outline-variant shadow-sm h-20 flex items-center transition-all duration-300">
       <nav className="flex justify-between items-center px-gutter max-w-container-max mx-auto w-full gap-md">
@@ -28,9 +31,11 @@ export default function Header() {
           <button className="p-xs text-on-surface-variant hover:text-secondary transition-colors relative">
             <span className="material-symbols-outlined">favorite</span>
           </button>
-          <button className="p-xs text-on-surface-variant hover:text-secondary transition-colors relative">
+          <button onClick={toggleDrawer} className="p-xs text-on-surface-variant hover:text-secondary transition-colors relative">
             <span className="material-symbols-outlined">shopping_cart</span>
-            <span className="absolute top-0 right-0 bg-secondary text-on-secondary text-[10px] w-4 h-4 flex items-center justify-center rounded-full">3</span>
+            {totalItems > 0 && (
+              <span className="absolute top-0 right-0 bg-secondary text-on-secondary text-[10px] w-4 h-4 flex items-center justify-center rounded-full">{totalItems}</span>
+            )}
           </button>
           <button className="p-xs text-on-surface-variant hover:text-secondary transition-colors">
             <span className="material-symbols-outlined">account_circle</span>

@@ -1,3 +1,5 @@
+import { useCart } from '../context/CartContext'
+
 const products = [
   {
     id: 1,
@@ -55,6 +57,7 @@ function Stars({ rating }) {
 }
 
 function ProductCard({ product }) {
+  const { addItem } = useCart()
   return (
     <div className="bg-white border border-outline-variant rounded-xl overflow-hidden group hover:shadow-lg transition-all duration-300 flex flex-col h-full">
       <div className="relative aspect-square overflow-hidden bg-surface-container-low">
@@ -79,7 +82,7 @@ function ProductCard({ product }) {
             {product.originalPrice && <span className="text-outline-variant text-[12px] line-through">{product.originalPrice}</span>}
             <span className="text-primary font-bold text-lg">{product.price}</span>
           </div>
-          <button className="w-full border border-primary text-primary py-xs rounded-lg font-label-md hover:bg-primary hover:text-on-primary transition-all flex items-center justify-center gap-xs active:scale-95">
+          <button onClick={() => addItem(product)} className="w-full border border-primary text-primary py-xs rounded-lg font-label-md hover:bg-primary hover:text-on-primary transition-all flex items-center justify-center gap-xs active:scale-95">
             <span className="material-symbols-outlined text-[18px]">add_shopping_cart</span>
             Tambah
           </button>
