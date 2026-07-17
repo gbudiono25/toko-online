@@ -1,7 +1,8 @@
 import { useCart } from '../context/CartContext'
+import { Link } from 'react-router-dom'
 
 export default function Header() {
-  const { totalItems, toggleDrawer } = useCart()
+  const { totalItems } = useCart()
   return (
     <header className="bg-surface w-full top-0 sticky z-50 border-b border-outline-variant shadow-sm h-20 flex items-center transition-all duration-300">
       <nav className="flex justify-between items-center px-gutter max-w-container-max mx-auto w-full gap-md">
@@ -22,21 +23,21 @@ export default function Header() {
         </div>
         {/* Desktop Links */}
         <div className="hidden lg:flex items-center gap-md">
-          <a className="font-body-md text-body-md text-secondary font-semibold border-b-2 border-secondary pb-1 transition-colors" href="#">Categories</a>
-          <a className="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">New Arrivals</a>
-          <a className="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Deals</a>
+          <Link className="font-body-md text-body-md text-secondary font-semibold border-b-2 border-secondary pb-1 transition-colors" to="/">Categories</Link>
+          <Link className="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" to="/">New Arrivals</Link>
+          <Link className="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" to="/">Deals</Link>
         </div>
         {/* Actions */}
         <div className="flex items-center gap-sm">
           <button className="p-xs text-on-surface-variant hover:text-secondary transition-colors relative">
             <span className="material-symbols-outlined">favorite</span>
           </button>
-          <button onClick={toggleDrawer} className="p-xs text-on-surface-variant hover:text-secondary transition-colors relative">
+          <Link to="/cart" className="p-xs text-on-surface-variant hover:text-secondary transition-colors relative">
             <span className="material-symbols-outlined">shopping_cart</span>
             {totalItems > 0 && (
               <span className="absolute top-0 right-0 bg-secondary text-on-secondary text-[10px] w-4 h-4 flex items-center justify-center rounded-full">{totalItems}</span>
             )}
-          </button>
+          </Link>
           <button className="p-xs text-on-surface-variant hover:text-secondary transition-colors">
             <span className="material-symbols-outlined">account_circle</span>
           </button>
