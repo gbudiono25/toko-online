@@ -1,14 +1,22 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
 
 export default function CartPage() {
-  const { items, removeItem, updateQty, totalPrice } = useCart()
+  const { items, removeItem, updateQty, totalItems } = useCart()
+  const [shipping, setShipping] = useState(25000)
 
   const subtotal = items.reduce((sum, i) => sum + i.qty * Number(i.price.replace(/[^\d]/g, '')), 0)
-  const shipping = subtotal > 0 ? 25000 : 0
   const discount = 50000
   const service = 2000
   const total = Math.max(subtotal + shipping + service - discount, 0)
+
+  const shippingOptions = [
+    { id: 'reg', name: 'J&T Express (Regular)', eta: 'Estimasi 2-3 hari kerja', price: 25000 },
+    { id: 'ons', name: 'SiCepat BEST (Overnight)', eta: 'Estimasi besok sampai', price: 45000 },
+    { id: 'inst', name: 'Gojek/Grab Instant', eta: 'Estimasi 2-4 jam', price: 85000 },
+    { id: 'cargo', name: 'JNE Trucking (Cargo)', eta: 'Estimasi 5-7 hari kerja', price: 12000 },
+  ]
 
   return (
     <>
@@ -94,14 +102,9 @@ export default function CartPage() {
                     Pilih Ekspedisi Pengiriman
                   </h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-sm">
-                    {[
-                      { id: 'reg', name: 'J&T Express (Regular)', eta: 'Estimasi 2-3 hari kerja', price: 25000 },
-                      { id: 'ons', name: 'SiCepat BEST (Overnight)', eta: 'Estimasi besok sampai', price: 45000 },
-                      { id: 'inst', name: 'Gojek/Grab Instant', eta: 'Estimasi 2-4 jam', price: 85000 },
-                      { id: 'cargo', name: 'JNE Trucking (Cargo)', eta: 'Estimasi 5-7 hari kerja', price: 12000 },
-                    ].map(opt => (
+                    {shippingOptions.map(opt => (
                       <label key={opt.id} className="relative flex cursor-pointer rounded-lg border border-outline-variant p-md focus:outline-none hover:bg-surface-container-low transition-colors group">
-                        <input defaultChecked={opt.id === 'reg'} className="hidden peer" name="shipping" type="radio" value={opt.id} />
+                        <input checked={shipping === opt.price} className="hidden peer" name="shipping" type="radio" value={opt.price} onChange={() => setShipping(opt.price)} />
                         <div className="flex w-full items-center justify-between">
                           <div className="flex items-center">
                             <div className="text-sm">
@@ -179,10 +182,10 @@ export default function CartPage() {
                 <div className="bg-white p-md rounded-xl border border-outline-variant shadow-sm space-y-md">
                   <h2 className="font-headline-sm text-lg text-primary">Ringkasan Belanja</h2>
                   <div className="space-y-sm">
-                    <div className="flex justify-between text-on-surface-variant">
-                      <span>Total Harga ({items.length} barang)</span>
-                      <span>Rp {subtotal.toLocaleString('id-ID')}</span>
-                    </div>
+                  <div className="flex justify-between text-on-surface-variant">
+                    <span>Total Harga ({totalItems} barang)</span>
+                    <span>Rp {subtotal.toLocaleString('id-ID')}</span>
+                  </div>
                     <div className="flex justify-between text-on-surface-variant">
                       <span>Total Ongkos Kirim</span>
                       <span>Rp {shipping.toLocaleString('id-ID')}</span>

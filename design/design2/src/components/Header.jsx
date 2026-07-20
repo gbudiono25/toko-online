@@ -17,7 +17,7 @@ export default function Header() {
           </div>
           <input
             className="w-full bg-surface-container-low border border-outline-variant rounded-xl py-2 pl-10 pr-sm focus:ring-2 focus:ring-secondary focus:border-transparent transition-all outline-none font-body-sm"
-            placeholder="Cari elektronik, fashion, atau perlengkapan kantor..."
+            placeholder="Cari produk..."
             type="text"
           />
         </div>

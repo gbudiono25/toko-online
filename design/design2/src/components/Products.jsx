@@ -1,43 +1,9 @@
 import { useCart } from '../context/CartContext'
+import { useProducts } from '../hooks/useSupabase'
 
-const products = [
-  {
-    id: 1,
-    tag: 'GADGET',
-    tagClass: 'bg-surface-container-highest text-primary',
-    title: 'EliteSound Wireless Headset Pro - Noise Cancelling',
-    rating: 4,
-    reviews: 128,
-    price: 'Rp 1.999.200',
-    originalPrice: 'Rp 2.499.000',
-    sale: 'SALE 20%',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDyV1n-4egGtvgzrSU4OjwAxdiOY-P2ZpuNu9GINy1YhE4E0yT_-CMPZkU7_5LZjfsDZOo4eV2h-eN0kUGQa4OqTmRnh3D51w7_W4MenlqbBIO8LCzx26h-bDr6IcVFeBKp5T01dWAxqh5FdaUwYTfgnZeDP7FLAPbjSPCv2TfX6JyTAIWr7PmzaLNuh3cjziUsqzfhX3WbyIVLoXAsSPgU_tcGZARCHORAqnDJQoqUJlXYmPAs3vKIxCHJsMW_cuEzov8-5qWNx01s',
-    alt: 'A premium wireless noise-canceling headphone in matte charcoal grey finish, displayed with dramatic side lighting that highlights its ergonomic curves and metallic accents, set against a minimal light grey studio background.'
-  },
-  {
-    id: 2,
-    tag: 'COMPUTER',
-    tagClass: 'bg-surface-container-highest text-primary',
-    title: 'KeyMaster K890 Mechanical Keyboard Blue Switch',
-    rating: 5,
-    reviews: 45,
-    price: 'Rp 850.000',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDgdUua6MROCE6ZYlJCs1W-jFtxkIz1-FWLwkQ4wLbbByo7crglPsFhKJ19Iv-qv5jtjWag9gz5pR2hjM7jyw67x9dRoCc4QWEQuDvTjc8HK1ONeHrcCJ9551IIMf-4nm_yKQ3WFuLHdI3xQayzelP3GJ_jT31w5tgwq_nCChF-jg9LXwgxGFeW45nDRaMIymJYyUzi_vbwxF5kGs5yway-8sO86Z31eSdqpzvwle01JOga72w7XOg1xHkOqxeSWZbL0T9yYnhbPuTH',
-    alt: 'A modern mechanical ergonomic keyboard with RGB backlighting, featuring high-quality PBT keycaps and a brushed aluminum base, photographed in a low-angle professional product shot with soft blue ambient glow in a professional gaming office setup.'
-  },
-  {
-    id: 3,
-    tag: 'OFFICE',
-    tagClass: 'bg-surface-container-highest text-primary',
-    title: 'ErgoForm Mesh Office Chair v2.0 - Grey Chrome',
-    rating: 4.5,
-    reviews: 312,
-    price: 'Rp 3.450.000',
-    sale: 'BEST SELLER',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCYnN0lVtdXWD730V2YBpARqQG5TEKAUB08zdgNhMTvJd3ZYMXUJu5psAo6TggrHGufXYEU3rmicbTcUoxHImymqHlFShFWfBs-BQU3B_IyVLBSLIpuQmPF-oe4PEa1h7uhkbMJNXTSQQu6wKW9yw25ozTla9U2P9pe0110Fwj21cHjBAkPdpCTj_AEQYLbVuBNaA2UndyoSVWFapBonM4VvVMGLSczHzMiOKoOJ50EWNO10ikYUs0t1kZbzu9-_Z0AHyOVXWW--0xO',
-    alt: 'A minimalist professional office chair in breathable black mesh and polished chrome accents, designed with ergonomic lumbar support, captured in a bright airy studio with soft shadows to emphasize its structural design and premium material texture.'
-  }
-]
+function formatRupiah(value) {
+  return 'Rp ' + Number(value).toLocaleString('id-ID')
+}
 
 function Stars({ rating }) {
   const full = Math.floor(rating)
@@ -58,31 +24,47 @@ function Stars({ rating }) {
 
 function ProductCard({ product }) {
   const { addItem } = useCart()
+  const price = formatRupiah(product.price)
+  const originalPrice = product.original_price ? formatRupiah(product.original_price) : null
+  const image = product.image_url
+  const alt = product.alt_text || product.name
+  const tag = product.tag
+  const tagClass = product.tag_class || 'bg-surface-container-highest text-primary'
+
   return (
     <div className="bg-white border border-outline-variant rounded-xl overflow-hidden group hover:shadow-lg transition-all duration-300 flex flex-col h-full">
       <div className="relative aspect-square overflow-hidden bg-surface-container-low">
-        <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt={product.alt} src={product.image} />
-        {product.sale && (
-          <div className={`absolute top-2 right-2 text-[10px] px-2 py-1 rounded-full font-bold ${product.sale === 'SALE 20%' ? 'bg-error text-on-error' : 'bg-secondary text-on-secondary'}`}>
-            {product.sale}
+        <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt={alt} src={image} />
+        {tag && (
+          <div className={`absolute top-2 right-2 text-[10px] px-2 py-1 rounded-full font-bold ${tagClass}`}>
+            {tag}
           </div>
         )}
       </div>
       <div className="p-sm flex flex-col flex-1">
         <div className="flex items-center gap-xs mb-1">
-          <span className={`text-[10px] px-2 py-0.5 ${product.tagClass} font-bold rounded`}>{product.tag}</span>
+          <span className={`text-[10px] px-2 py-0.5 ${tagClass} font-bold rounded`}>{tag}</span>
         </div>
-        <h4 className="font-label-md text-on-surface line-clamp-2 mb-xs group-hover:text-secondary transition-colors">{product.title}</h4>
+        <h4 className="font-label-md text-on-surface line-clamp-2 mb-xs group-hover:text-secondary transition-colors">{product.name}</h4>
         <div className="flex items-center gap-xs mb-sm">
           <Stars rating={product.rating} />
           <span className="text-[10px] text-on-surface-variant">({product.reviews} Ulasan)</span>
         </div>
         <div className="mt-auto">
           <div className="flex flex-col mb-sm">
-            {product.originalPrice && <span className="text-outline-variant text-[12px] line-through">{product.originalPrice}</span>}
-            <span className="text-primary font-bold text-lg">{product.price}</span>
+            {originalPrice && <span className="text-outline-variant text-[12px] line-through">{originalPrice}</span>}
+            <span className="text-primary font-bold text-lg">{price}</span>
           </div>
-          <button onClick={() => addItem(product)} className="w-full border border-primary text-primary py-xs rounded-lg font-label-md hover:bg-primary hover:text-on-primary transition-all flex items-center justify-center gap-xs active:scale-95">
+          <button onClick={() => addItem({
+            id: product.id,
+            title: product.name,
+            price: price,
+            image: image,
+            alt: alt,
+            tag: tag,
+            tagClass: tagClass,
+            originalPrice: originalPrice
+          })} className="w-full border border-primary text-primary py-xs rounded-lg font-label-md hover:bg-primary hover:text-on-primary transition-all flex items-center justify-center gap-xs active:scale-95">
             <span className="material-symbols-outlined text-[18px]">add_shopping_cart</span>
             Tambah
           </button>
@@ -93,6 +75,44 @@ function ProductCard({ product }) {
 }
 
 export default function Products() {
+  const { products, loading, error } = useProducts()
+
+  if (loading) {
+    return (
+      <section className="px-gutter max-w-container-max mx-auto mt-xl">
+        <div className="flex justify-between items-center mb-md">
+          <div>
+            <h2 className="font-headline-sm text-primary">Produk Terbaik</h2>
+            <p className="text-on-surface-variant font-body-sm">Menampilkan produk pilihan untuk Anda</p>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-md">
+          {[...Array(6)].map((_, i) => (
+            <div key={i} className="bg-white border border-outline-variant rounded-xl overflow-hidden">
+              <div className="aspect-square bg-gray-200 animate-pulse"></div>
+              <div className="p-sm space-y-2">
+                <div className="h-4 bg-gray-200 rounded animate-pulse"></div>
+                <div className="h-4 bg-gray-200 rounded animate-pulse w-3/4"></div>
+                <div className="h-6 bg-gray-200 rounded animate-pulse w-1/2"></div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    )
+  }
+
+  if (error) {
+    return (
+      <section className="px-gutter max-w-container-max mx-auto mt-xl">
+        <div className="text-center py-xl">
+          <p className="text-error font-bold">Gagal memuat produk</p>
+          <p className="text-on-surface-variant text-sm mt-2">{error}</p>
+        </div>
+      </section>
+    )
+  }
+
   return (
     <section className="px-gutter max-w-container-max mx-auto mt-xl">
       <div className="flex flex-col md:flex-row gap-lg">
@@ -150,7 +170,7 @@ export default function Products() {
         {/* Product Grid Content */}
         <div className="flex-1">
           <div className="flex justify-between items-center mb-md">
-            <p className="text-body-sm text-on-surface-variant">Menampilkan <span className="font-bold text-on-surface">24 Produk</span> Terbaik</p>
+            <p className="text-body-sm text-on-surface-variant">Menampilkan <span className="font-bold text-on-surface">{products.length} Produk</span> Terbaik</p>
             <div className="flex items-center gap-sm">
               <span className="text-body-sm text-on-surface-variant">Urutkan:</span>
               <select className="bg-white border border-outline-variant rounded px-sm py-xs text-body-sm outline-none focus:ring-1 focus:ring-secondary">
